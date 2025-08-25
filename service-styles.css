@@ -1,0 +1,245 @@
+/* 组织公益服务模块样式 */
+#announcements {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    overflow: hidden;
+}
+
+#announcements::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://image.mcmsf.com/file/1743165925219_1%20(10).png') center/cover no-repeat;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+#announcements .container {
+    position: relative;
+    z-index: 2;
+}
+
+#announcements h2 {
+    position: relative;
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+}
+
+#announcements h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #4C78DD, #6610f2);
+    border-radius: 3px;
+}
+
+/* 服务卡片样式 */
+.service-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    margin-bottom: 30px;
+    background-color: #fff;
+    height: 100%;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+/* 入场动画类 */
+.service-card-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.service-card .card-body {
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.service-icon-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(76, 120, 221, 0.1) 0%, rgba(102, 16, 242, 0.1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(76, 120, 221, 0.1);
+}
+
+.service-card:hover .service-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(76, 120, 221, 0.2) 0%, rgba(102, 16, 242, 0.2) 100%);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #4C78DD;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: rotate(-5deg);
+}
+
+.service-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 15px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.service-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #4C78DD, #6610f2);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.service-card:hover .service-title::after {
+    width: 70px;
+}
+
+.service-description {
+    color: #666;
+    margin-bottom: 25px;
+    min-height: 80px;
+}
+
+.service-btn {
+    position: relative;
+    padding: 10px 25px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid #4C78DD;
+    background: transparent;
+    color: #4C78DD;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.service-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #4C78DD, #6610f2);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.service-card:hover .service-btn {
+    color: #fff;
+}
+
+.service-card:hover .service-btn::before {
+    width: 100%;
+}
+
+/* 背景装饰元素 */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(76, 120, 221, 0.05) 0%, rgba(102, 16, 242, 0.05) 100%);
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.service-card:hover::before {
+    transform: scale(5);
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    #announcements {
+        padding: 60px 0;
+    }
+    
+    .service-description {
+        min-height: auto;
+    }
+}
+
+/* 深色模式适配 */
+.dark-mode #announcements {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark-mode .service-card {
+    background-color: #2a2a2a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .service-title {
+    color: #f0f0f0;
+}
+
+.dark-mode .service-description {
+    color: #ccc;
+}
+
+.dark-mode .service-icon-wrapper {
+    background: linear-gradient(135deg, rgba(76, 120, 221, 0.15) 0%, rgba(102, 16, 242, 0.15) 100%);
+}
+
+.dark-mode .service-card:hover .service-icon-wrapper {
+    background: linear-gradient(135deg, rgba(76, 120, 221, 0.25) 0%, rgba(102, 16, 242, 0.25) 100%);
+}
+
+/* 添加页面装饰元素 */
+.decoration-dots {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: radial-gradient(circle, #4C78DD 1px, transparent 1px);
+    background-size: 15px 15px;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.decoration-dots-1 {
+    top: 50px;
+    left: 50px;
+    transform: rotate(15deg);
+}
+
+.decoration-dots-2 {
+    bottom: 50px;
+    right: 50px;
+    transform: rotate(-15deg);
+} 

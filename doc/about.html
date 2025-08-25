@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCMSF 关于我们</title>
+<style>
+  /* 引入你提供的导航栏和基本样式 */
+  :root{
+    --md-sys-color-primary:#6fa8dc;
+    --md-sys-color-on-primary:#ffffff;
+    --md-sys-color-surface:#ffffff;
+    --md-sys-color-background:#fafafa;
+    --md-sys-elevation-1: 0 1px 2px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.06);
+    --md-sys-elevation-2: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+    --page-max: 1200px;
+  }
+  html,body{margin:0;padding:0;background:var(--md-sys-color-background);color:#1f1f1f;font-family:"Noto Sans SC","Roboto",system-ui,-apple-system,Segoe UI,Arial,Helvetica Neue,Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.6}
+  a{color:var(--md-sys-color-primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .appbar{position:sticky;top:0;z-index:1000;background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);box-shadow:var(--md-sys-elevation-2)}
+  .appbar .row{max-width:var(--page-max);margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 20px}
+  .brand{font-weight:700;letter-spacing:.2px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+  .brand small{opacity:.9;font-weight:500}
+  .wrap{max-width:var(--page-max);margin:24px auto;display:grid;grid-template-columns:280px 1fr;gap:24px;padding:0 20px}
+  .toc{position:sticky;top:76px;align-self:start;background:var(--md-sys-color-surface);border-radius:16px;box-shadow:var(--md-sys-elevation-1);padding:16px;max-height: calc(100vh - 100px);overflow-y: auto;}
+  .toc h3{margin:0 0 8px 0;font-size:14px;color:#555}
+  .toc a{display:block;padding:6px 8px;border-radius:8px;font-size: 14px;}
+  .toc a.active{background:#e8f0fe}
+  .content{min-width:0}
+  .card{background:var(--md-sys-color-surface);border-radius:18px;box-shadow:var(--md-sys-elevation-1);padding:20px;margin-bottom:16px}
+  h1{font-size:28px;margin:12px 0}
+  h2{font-size:22px;margin:24px 0 12px}
+  h3{font-size:18px;margin:16px 0 8px}
+  .meta{color:#666;font-size:13px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:12px;padding:10px 14px;background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);cursor:pointer;font-size: 14px;}
+  footer{max-width:var(--page-max);margin:40px auto 24px;padding:0 20px;color:#666}
+  /* 移动端适配 */
+@media (max-width: 768px) {
+  .wrap {
+    display: block;
+    padding: 0 16px;
+    margin: 16px auto;
+  }
+  .toc {
+    position: relative;
+    top: 0;
+    max-height: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+  .toc h3 {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .toc a {
+    flex: 1 1 calc(50% - 8px);
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  .content {
+    min-width: 0;
+  }
+  h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 16px; }
+  .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+    padding: 10px;
+  }
+  .appbar .row {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 16px;
+  }
+  .brand {
+    flex: 1 1 100%;
+    text-align: left;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="appbar" role="banner">
+  <div class="row">
+    <img src="/png/round (1).png" alt="Logo" style="height: 32px; margin-right: 8px;">
+    <div class="brand">MCMSF（浆果服）<small> · 关于我们</small></div>
+    <div style="flex:1"></div>
+    <a class="btn" href="mailto:support@mcmsf.com">联系支持</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="toc">
+    <h3>目录</h3>
+    <a href="#mission" class="active">我们的使命</a>
+    <a href="#team">团队介绍</a>
+    <a href="#future">未来方向</a>
+    <a href="#contact">联系我们</a>
+  </nav>
+
+  <main class="content">
+    <div class="card" id="mission">
+      <h1>我们的使命</h1>
+      <p>MCMSF（浆果服）致力于为 Minecraft 玩家提供一个安全、开放、互动丰富的平台。我们希望通过服务器展示、社区活动和资源分享，让玩家和服主能够更好地连接和交流。</p>
+    </div>
+
+    <div class="card" id="team">
+      <h2>团队介绍</h2>
+      <p>MCMSF 的核心团队由经验丰富的开发者和 Minecraft 爱好者组成。我们秉承开放、透明、创新的理念，共同推动平台的发展。</p>
+      <ul>
+        <li>昕淼央 - 平台创始人 & 核心开发</li>
+                <li>nomi - 后端支持 & 核心开发</li>
+                        <li>从不咕咕的鸽纸 - 宣发支持 & 运营企业老板</li>
+                                <li>loong - 页面优化 & 核心开发</li>
+                                        <li>枫叶的有晚 & 社区运营</li>
+                                                <li>[对方不愿留名] & 形象设计</li>
+        <!-- 可根据需要增加成员 -->
+      </ul>
+    </div>
+
+    <div class="card" id="future">
+      <h2>未来方向</h2>
+      <p>我们计划扩展服务器展示功能，增加社区互动模块，提升移动端体验，并提供更多便捷的资源分享工具，让 MCMSF 成为 Minecraft 玩家首选的平台。</p>
+    </div>
+
+    <div class="card" id="contact">
+      <h2>联系我们</h2>
+      <p>如有任何问题或建议，请通过以下方式联系：</p>
+      <ul>
+        <li>邮箱: <a href="mailto:support@mcmsf.com">support@mcmsf.com</a></li>
+        <li>QQ群: <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=3bEp4UT%2FWPrqAen8m70uR7AYRANK9ZL2ODZWP3%2FU2afhC806DfwoE29%2BMC7nNyhm&busi_data=eyJncm91cENvZGUiOiIxMDM0NTE2MjYwIiwidG9rZW4iOiJiRmdqeVFkMTd6eUtRSU5hUTh2eHlvS3VXWVpYSisyK0Vja0pMSTdndzN4d1VQUm5xWjBrUXg1RHlqZ2pPaTlmIiwidWluIjoiMjQ1NjUxNjY5NSJ9&data=uVuv2Rne5JtC_-eR6v5LbPF4Nu3b4F11M9KUU-Z2KLLsl40Kyu0aFCVNnHvDofH-9-uUUtG5zOt3ys9950DYYQ&svctype=4&tempid=h5_group_info" target="_blank">加入交流群</a></li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<footer>
+  MCMSF - 浆果服
+</footer>
+
+</body>
+</html>

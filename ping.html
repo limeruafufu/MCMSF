@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCMSF - 服务状态监控暂未上线</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --background: #1a2530;
+            --card-bg: #243241;
+            --text-light: #f5f7fa;
+            --text-gray: #a0aec0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--background) 0%, #1e2a38 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #2980b9 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(52, 152, 219, 0.2);
+        }
+        
+        .dashboard-title {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .dashboard-subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-icon.server {
+            background: linear-gradient(135deg, var(--warning) 0%, #e67e22 100%);
+        }
+        
+        .stat-icon.storage {
+            background: linear-gradient(135deg, var(--secondary) 0%, #2980b9 100%);
+        }
+        
+        .stat-icon.users {
+            background: linear-gradient(135deg, var(--success) 0%, #27ae60 100%);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .service-icon.image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .service-icon.server {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .service-icon.beian {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .service-icon.cloud {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        
+        .service-icon.app {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .service-icon.website {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .service-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .service-url {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 5px;
+        }
+        
+        .service-status {
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .status-up {
+            background: rgba(46, 204, 113, 0.2);
+            color: var(--success);
+        }
+        
+        .status-down {
+            background: rgba(231, 76, 60, 0.2);
+            color: var(--danger);
+        }
+        
+        .status-dev {
+            background: rgba(243, 156, 18, 0.2);
+            color: var(--warning);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-description {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .ping-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        
+        .ping-value {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .ping-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        .ping-result {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .ping-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+        
+        .ping-data {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .ping-good {
+            color: var(--success);
+        }
+        
+        .ping-medium {
+            color: var(--warning);
+        }
+        
+        .ping-bad {
+            color: var(--danger);
+        }
+        
+        .ping-action {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary) 0%, #2980b9 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2980b9 0%, var(--secondary) 100%);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .service-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .progress-1 {
+            width: 1%;
+            background: linear-gradient(90deg, var(--warning) 0%, #e67e22 100%);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 1100px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stats-grid, .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .ping-status {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .ping-action {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="logo-text">MCMSF<span>状态#在建</span></div>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">状态列表</a>
+            </div>
+        </header>
+        
+        <div class="services-grid">
+            <!-- 图床服务 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-title">
+                        <div class="service-icon image">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div>
+                            <div class="service-name">图床服务</div>
+                            <div class="service-url">https://image.mcmsf.com/</div>
+                        </div>
+                    </div>
+                    <div class="service-status status-up">运行正常</div>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">高速稳定的图像存储与分发服务，支持多种图片格式和CDN加速。</p>
+                    
+                    <div class="ping-status">
+                        <div class="ping-result">
+                            <span class="ping-label">当前Ping值</span>
+                            <span class="ping-data ping-good" id="image-ping">23ms</span>
+                        </div>
+                        <div class="ping-action">
+                            <button class="btn btn-primary" onclick="pingService('image')">
+                                <i class="fas fa-sync-alt"></i> 重新检测
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-actions">
+                        <button class="btn btn-primary">访问图床</button>
+                   
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- 云盘服务 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-title">
+                        <div class="service-icon cloud">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div>
+                            <div class="service-name">云盘存储</div>
+                            <div class="service-url">cloud.mcmsf.com</div>
+                        </div>
+                    </div>
+                    <div class="service-status status-up">运行正常</div>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">nomi提供的安全可靠的云存储服务，支持文件同步、分享和协作，多设备无缝访问。</p>
+                    
+                    <div class="ping-status">
+                        <div class="ping-result">
+                            <span class="ping-label">当前Ping值</span>
+                            <span class="ping-data ping-good" id="cloud-ping">27ms</span>
+                        </div>
+                        <div class="ping-action">
+                            <button class="btn btn-primary" onclick="pingService('cloud')">
+                                <i class="fas fa-sync-alt"></i> 重新检测
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-actions">
+                        <button class="btn btn-primary">查看</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 手机APP开发 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-title">
+                        <div class="service-icon app">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div>
+                            <div class="service-name">手机APP开发</div>
+                            <div class="service-url">开发中</div>
+                        </div>
+                    </div>
+                    <div class="service-status status-dev">开发中</div>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">全新的移动端应用，提供更便捷的服务访问体验，预计下季度发布。</p>
+                    
+                    <div class="ping-status">
+                        <div class="ping-result">
+                            <span class="ping-label">开发进度</span>
+                            <span class="ping-data ping-medium">1%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill progress-1"></div>
+                    </div>
+                    
+                    <div class="service-actions">
+                        <button class="btn btn-primary">查看</button>
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MCMSF网站项目状态 -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-title">
+                        <div class="service-icon website">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <div class="service-name">MCMSF网站项目</div>
+                            <div class="service-url">mcmsf.com</div>
+                        </div>
+                    </div>
+                    <div class="service-status status-up">运行正常</div>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">MCMSF官方网站</p>
+                    
+                    <div class="ping-status">
+                        <div class="ping-result">
+                            <span class="ping-label">当前Ping值</span>
+                            <span class="ping-data ping-good" id="website-ping">45ms</span>
+                        </div>
+                        <div class="ping-action">
+                            <button class="btn btn-primary" onclick="pingService('website')">
+                                <i class="fas fa-sync-alt"></i> 重新检测
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="service-actions">
+                        <button class="btn btn-primary">访问网站</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>联系支持团队：support@mcmsf.com</p>
+        </footer>
+    </div>
+
+<script>
+async function pingService(service, url) {
+    const pingElement = document.getElementById(`${service}-ping`);
+    const statusElement = pingElement.closest('.service-card').querySelector('.service-status');
+
+    pingElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 检测中...';
+    const start = performance.now();
+
+    try {
+        // 加个随机参数避免缓存
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000);
+        await fetch(url + "?t=" + Date.now(), {
+            method: "GET",
+            mode: "no-cors",  // 避免跨域报错
+            cache: "no-store",
+            signal: controller.signal
+        });
+        clearTimeout(timeout);
+
+        const latency = Math.round(performance.now() - start);
+        pingElement.textContent = latency + "ms";
+
+        // 根据延迟判断状态
+        if (latency < 100) {
+            pingElement.className = "ping-data ping-good";
+            statusElement.className = "service-status status-up";
+            statusElement.textContent = "运行正常";
+        } else if (latency < 300) {
+            pingElement.className = "ping-data ping-medium";
+            statusElement.className = "service-status status-up";
+            statusElement.textContent = "延迟较高";
+        } else {
+            pingElement.className = "ping-data ping-bad";
+            statusElement.className = "service-status status-down";
+            statusElement.textContent = "网络不佳";
+        }
+    } catch (e) {
+        pingElement.textContent = "超时";
+        pingElement.className = "ping-data ping-bad";
+        statusElement.className = "service-status status-down";
+        statusElement.textContent = "服务中断";
+    }
+}
+
+// 页面加载后自动测速
+document.addEventListener("DOMContentLoaded", () => {
+    pingService("image", "https://image.mcmsf.com/index.html");
+    pingService("cloud", "https://cloud.mcmsf.com/index.html");
+    pingService("website", "https://mcmsf.com/index.html");
+
+    setInterval(() => {
+        pingService("image", "https://image.mcmsf.com/index.html");
+        pingService("cloud", "https://cloud.mcmsf.com/index.html");
+        pingService("website", "https://mcmsf.com/index.html");
+    }, 60000);
+});
+</script>
+</body>
+</html>
