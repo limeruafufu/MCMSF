@@ -1,0 +1,3386 @@
+<!doctype html>
+<html lang="zh-CN"> 
+<head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover, user-scalable=no minimal-ui"> <!-- 设置视口属性，优化移动端显示 -->
+    <title>浆果服 - MC服务器宣传平台(MCMSF)</title> 
+    <meta name="keywords" content="mcmsf  服务器推荐推荐  MC生存服务器"> 
+    <meta name="description" content="mcmsf  服务器推荐推荐  MC生存服务器"> 
+    <meta name="msvalidate.01" content="E27E9E131B2BC9B3A1D9A678770D2DEC" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="一个开放的 Minecraft 服务器宣传平台，致力于连接服务器与玩家，提供服务器展示、资源共享与互动支持，共建自由协作的 Minecraft 多元生态">
+    <meta name="baidu-site-verification" content="codeva-LYIwXumqET" />
+    <link rel="shortcut icon" href="../assets/media/various/favicon.png">
+    <link rel="stylesheet" id="css-main" href="../assets/css/oneui.min-5.6.css"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="stats-styles.css" rel="stylesheet">
+    <link href="service-styles.css" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HQDQJJYW7"></script>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id:"",ck:""})</script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-9HQDQJJYW7');
+    </script>
+    <style>
+        /* 默认浅色模式 */
+        body {
+            background: #fff;
+            color: #000;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* 暗黑模式样式 */
+        body.dark-mode {
+            background: #121212;
+            color: #fff;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode #server-search,
+        body.dark-mode .half-screen-nav {
+            background: rgba(30, 30, 30, 0.95);
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .footer {
+            background: #1a1a1a;
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .footer-section h5 {
+            color: #fff;
+        }
+
+        body.dark-mode .footer-bottom {
+            border-top: 1px solid #333;
+        }
+
+        body.dark-mode .footer a,
+        body.dark-mode .social-icons a {
+            color: #aaa;
+        }
+
+        body.dark-mode .footer a:hover,
+        body.dark-mode .social-icons a:hover {
+            color: #fff;
+        }
+
+        /* 按钮图标颜色适配 */
+        #darkModeToggle i {
+            transition: color 0.3s;
+        }
+
+        body.dark-mode #darkModeToggle i {
+            color: white;
+        }
+        
+        /* 通知栏样式 */
+    #notice-bar {
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 16px;
+            width: 100%;
+            z-index: 1060;
+            position: relative;
+        }
+        
+        /* 让导航菜单展开时占据半屏 */
+        .half-screen-nav {
+            position: fixed;
+            top: 0;
+            right: -75%;
+            width: 75%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1050;
+            overflow-y: auto;
+            transition: right 0.3s ease-in-out;
+        }
+
+        @media (min-width: 768px) {
+            .half-screen-nav {
+                right: -50%;
+                width: 50%;
+            }
+        }
+
+        .half-screen-nav.show {
+            right: 0;
+        }
+
+        .half-screen-nav .nav {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .half-screen-nav .nav-item {
+            margin: 15px 0;
+        }
+
+        .half-screen-nav .nav-link {
+            font-size: 18px;
+            padding: 10px;
+            transition: all 0.3s;
+        }
+
+        .half-screen-nav .nav-link:hover {
+            transform: translateX(5px);
+        }
+
+        .close-nav {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close-nav:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* 英雄区域 */
+        #one-hero {
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            padding: 1px 0;
+        }
+
+        #one-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #one-hero .content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* 服务器搜索框 */
+        #server-search {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: -30px auto 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 900px;
+            position: relative;
+            z-index: 20;
+        }
+
+        @media (min-width: 768px) {
+            #server-search {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        #server-search input,
+        #server-search select {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        #server-search input:focus,
+        #server-search select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+            outline: none;
+        }
+
+        @media (min-width: 768px) {
+            #server-search input {
+                flex: 2;
+            }
+
+            #server-search select {
+                flex: 1;
+                cursor: pointer;
+            }
+        }
+
+        /* 服务器卡片 */
+        .server-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .server-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .server-card .card-img-top {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: #f5f7f8;
+            color: #333;
+            padding: 50px 0 30px;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+        }
+
+        .footer .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h5 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #000;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #007bff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .footer-section ul li a:hover {
+            color: #007bff;
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            font-size: 20px;
+            color: #555;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom a {
+            color: #4C78DD;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover {
+            color: #2a56be;
+            text-decoration: underline;
+        }
+        
+        /* 公益服务区域 */
+        #announcements {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        #announcements h2 {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        #announcements h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #007bff;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 767px) {
+            .pt-7 {
+                padding-top: 3rem !important;
+            }
+            
+            #one-hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            #one-hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* 新增内容区块的样式 */
+        .news-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-card img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .news-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .partner-logo {
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .partner-logo:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        /* 常见问题区域样式 */
+        .accordion-button:not(.collapsed) {
+            color: #0d6efd;
+            background-color: rgba(13, 110, 253, 0.1);
+            box-shadow: none;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(13, 110, 253, 0.25);
+        }
+        
+        /* 关于我们区域图标样式 */
+        #about .rounded-circle {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 767px) {
+            .pt-7 {
+                padding-top: 3rem !important;
+            }
+            
+            #one-hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            #one-hero p {
+                font-size: 1rem;
+            }
+            
+            #about .col-lg-6 img {
+                margin-top: 2rem;
+            }
+        }
+        
+        /* 暗黑模式适配新内容 */
+        body.dark-mode .bg-light {
+            background-color: #1e1e1e !important;
+        }
+        
+        body.dark-mode .card {
+            background-color: #2a2a2a;
+            border-color: #333;
+        }
+        
+        body.dark-mode .accordion-button {
+            background-color: #2a2a2a;
+            color: #fff;
+        }
+        
+        body.dark-mode .accordion-button:not(.collapsed) {
+            background-color: rgba(13, 110, 253, 0.2);
+            color: #8ab4f8;
+        }
+        
+        body.dark-mode .accordion-body {
+            background-color: #2a2a2a;
+            color: #ddd;
+        }
+        
+        body.dark-mode .text-muted {
+            color: #aaa !important;
+        }
+
+        /* 视频区域样式 */
+        .video-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* 评价轮播样式 */
+        .testimonial-avatar img {
+            border: 3px solid #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 40px;
+            height: 40px;
+            background-color: #007bff;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.7;
+        }
+
+        .carousel-control-prev {
+            left: -20px;
+        }
+
+        .carousel-control-next {
+            right: -20px;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        /* 活动卡片样式 */
+        .event-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .event-card img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .event-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .event-date-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        .event-calendar {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 5px;
+            text-align: center;
+            width: 50px;
+        }
+
+        .event-month {
+            background-color: #dc3545;
+            color: white;
+            font-size: 12px;
+            padding: 2px 0;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .event-day {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 联系我们区域样式 */
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(13, 110, 253, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .form-floating label {
+            color: #555;
+        }
+
+        /* 统计数字样式 */
+        .stat-icon {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* App下载区域样式 */
+        .app-download {
+            position: relative;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .app-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .app-badge {
+            transition: transform 0.3s;
+            max-width: 150px;
+        }
+
+        .app-badge:hover {
+            transform: translateY(-5px);
+        }
+
+        .app-phone {
+            max-width: 300px;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-features i {
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        @media (max-width: 767px) {
+            .app-phone {
+                max-width: 200px;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* 优化服务器列表样式 */
+        #server-list .block {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        
+        #server-list .block:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        #server-list img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .status-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+        
+        .bg-success {
+            background-color: #28a745 !important;
+        }
+        
+        .bg-danger {
+            background-color: #dc3545 !important;
+        }
+        
+        /* 暗模式适配 */
+        body.dark-mode #server-list .block {
+            background: #2a2a2a;
+            border-color: #333;
+        }
+        
+        body.dark-mode .bg-primary,
+        body.dark-mode .bg-success,
+        body.dark-mode .bg-info {
+            opacity: 0.9;
+        }
+        
+        body.dark-mode .text-muted {
+            color: #aaa !important;
+        }
+
+        /* 暗黑模式下App下载区域 */
+        body.dark-mode .app-download {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://picsum.photos/1920/1080?random=10') center/cover;
+        }
+
+        body.dark-mode .app-features i {
+            background-color: rgba(76, 120, 221, 0.3);
+        }
+
+        /* 轮播控制按钮在暗黑模式下更明显 */
+        body.dark-mode .carousel-control-prev,
+        body.dark-mode .carousel-control-next {
+            background-color: rgba(76, 120, 221, 0.7);
+            width: 45px;
+            height: 45px;
+        }
+
+        body.dark-mode .carousel-control-prev:hover,
+        body.dark-mode .carousel-control-next:hover {
+            background-color: rgba(76, 120, 221, 1);
+        }
+
+        body.dark-mode .carousel-indicators button {
+            background-color: rgba(76, 120, 221, 0.5);
+        }
+
+        body.dark-mode .carousel-indicators button.active {
+            background-color: rgba(76, 120, 221, 1);
+        }
+
+        /* 暗黑模式下通知栏 */
+        body.dark-mode #notice-bar {
+            background-color: #a12c2c;
+        }
+
+        /* 改进服务器卡片在暗模式下的样式 */
+        body.dark-mode #server-list .block {
+            background-color: #232323;
+            border-color: #333;
+        }
+
+        /* 公告部分暗黑模式优化 */
+        body.dark-mode #announcements {
+            background-color: #191919;
+        }
+
+        /* 改进服务器卡片在暗模式下的样式 */
+        body.dark-mode #server-list .block {
+            background-color: #232323;
+            border-color: #333;
+        }
+
+        /* 公告部分暗黑模式优化 */
+        body.dark-mode #announcements {
+            background-color: #191919;
+        }
+
+        /* 公益服务卡片样式 */
+        .hover-scale {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hover-scale:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* 服务图标背景色 */
+        .bg-primary-soft {
+            background-color: rgba(13, 110, 253, 0.15);
+        }
+
+        .bg-success-soft {
+            background-color: rgba(25, 135, 84, 0.15);
+        }
+
+        .bg-info-soft {
+            background-color: rgba(13, 202, 240, 0.15);
+        }
+
+        .bg-warning-soft {
+            background-color: rgba(255, 193, 7, 0.15);
+        }
+
+        .bg-danger-soft {
+            background-color: rgba(220, 53, 69, 0.15);
+        }
+
+        /* 服务图标容器动画 */
+        .service-icon-container {
+            position: relative;
+        }
+
+        .service-icon {
+            position: relative;
+            z-index: 2;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 确保图标在悬停效果中能正确显示 */
+            transition: all 0.3s ease;
+        }
+
+        .service-icon-container::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(13, 110, 253, 0.1);
+            /* 修改定位，确保居中显示 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 1;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        .service-card:hover .service-icon-container::before {
+            opacity: 1;
+            /* 修改transform，保持居中的同时放大 */
+            transform: translate(-50%, -50%) scale(3);
+        }
+
+        /* 暗黑模式适配 */
+        body.dark-mode .bg-primary-soft {
+            background-color: rgba(76, 120, 221, 0.2);
+        }
+
+        body.dark-mode .bg-success-soft {
+            background-color: rgba(25, 135, 84, 0.2);
+        }
+
+        body.dark-mode .bg-info-soft {
+            background-color: rgba(13, 202, 240, 0.2);
+        }
+
+        body.dark-mode .bg-warning-soft {
+            background-color: rgba(255, 193, 7, 0.2);
+        }
+
+        body.dark-mode .bg-danger-soft {
+            background-color: rgba(220, 53, 69, 0.2);
+        }
+
+        body.dark-mode .service-icon-container::before {
+            background-color: rgba(76, 120, 221, 0.15);
+        }
+
+        /* 其他样式... */
+        
+        /* 联系卡片样式 */
+        .contact-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* 其他样式... */
+
+        /* 特性图标容器 - 修复图标变扁问题 */
+        .feature-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        /* 联系卡片样式 */
+        .contact-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* 其他样式... */
+
+        body.dark-mode .service-icon-container::before {
+            background-color: rgba(76, 120, 221, 0.15);
+        }
+        
+        body.dark-mode .feature-icon-wrapper {
+            background-color: #333;
+        }
+        
+        body.dark-mode .feature-icon-wrapper.bg-primary {
+            background-color: #0d6efd33;
+        }
+        
+        body.dark-mode .feature-icon-wrapper.bg-success {
+            background-color: #19875433;
+        }
+        
+        body.dark-mode .feature-icon-wrapper.bg-info {
+            background-color: #0dcaf033;
+        }
+        
+        body.dark-mode .service-icon {
+            color: #fff;
+        }
+
+        /* 特性图标容器 - 修复图标变扁问题 */
+        .feature-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        /* 暗黑模式图标样式优化 */
+        body.dark-mode .feature-icon-wrapper {
+            background-color: rgba(76, 120, 221, 0.3) !important;
+            color: #fff;
+        }
+        
+        /* 优化Wiki图标样式 */
+        .service-icon {
+            position: relative;
+            z-index: 2;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 确保图标在悬停效果中能正确显示 */
+            transition: all 0.3s ease;
+        }
+        
+        /* 添加服务卡片图标悬停效果 */
+        .service-card:hover .service-icon {
+            /* 给图标添加轻微旋转效果 */
+            transform: rotate(-5deg);
+        }
+    </style>
+    
+    <style>
+@font-face {
+  font-family: 'MyFont';
+  src: url('/fonts/myfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'MyFont', sans-serif;
+}
+</style>
+
+</head>
+<body> <!-- 文档主体部分 -->
+    <div id="page-container" class="page-header-fixed main-content-boxed"> <!-- 页面容器，设置固定头部和内容宽度 -->
+        <header id="page-header"> <!-- 页面头部 -->
+     
+
+            <div class="content-header"> <!-- 头部内容容器 -->
+                <div class="d-flex align-items-center"> <!-- 使用Flex布局对齐内容 -->
+                   <a class="fw-bold fs-lg tracking-wider text-dual me-2 d-flex align-items-center" href="/">
+  <img src="/png/logo.png" alt="Logo" style="height: 32px; margin-right: 8px;">
+  浆果服 MCMSF
+</a>
+                </div>
+                <div class="d-flex align-items-center"> <!-- 导航和按钮容器 -->
+                    <ul class="nav-main nav-main-horizontal nav-main-hover d-none d-lg-block me-2"> <!-- 导航菜单 -->
+                        <li class="nav-main-item"> <!-- 导航项 -->
+                            <a class="nav-main-link" href="javascript:void(0)"> <!-- 导航链接 -->
+                                <i class="nav-main-link-icon fa fa-home"></i> <!-- 导航图标 -->
+                                <span class="nav-main-link-name"><strong>首页</strong></span> <!-- 导航名称 -->
+                            </a>
+                        </li>
+</ul>
+<!-- 修改暗黑模式切换按钮 -->
+<button type="button" class="btn btn-alt-secondary me-1" id="darkModeToggle" onclick="document.body.classList.toggle('dark-mode'); localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled'); return false;" style="cursor:pointer;">
+    <i class="far fa-moon" id="moon-icon" style="display:inline-block;"></i>
+    <i class="far fa-sun" id="sun-icon" style="display:none;"></i>
+</button>
+
+<script>
+// 页面加载时设置初始主题
+document.addEventListener('DOMContentLoaded', function() {
+    // 读取本地存储中的暗黑模式设置
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('moon-icon').style.display = 'none';
+        document.getElementById('sun-icon').style.display = 'inline-block';
+    }
+    
+    // 为顶部按钮添加完整的点击处理函数
+    document.getElementById('darkModeToggle').addEventListener('click', function() {
+        // 切换暗黑模式
+        const isDarkMode = document.body.classList.toggle('dark-mode');
+        
+        // 保存设置
+        localStorage.setItem('dark-mode', isDarkMode ? 'enabled' : 'disabled');
+        
+        // 切换图标
+        document.getElementById('moon-icon').style.display = isDarkMode ? 'none' : 'inline-block';
+        document.getElementById('sun-icon').style.display = isDarkMode ? 'inline-block' : 'none';
+        
+        // 更新导航栏
+        const mainNav = document.getElementById('mainNav');
+        if (mainNav) {
+            if (isDarkMode) {
+                mainNav.classList.add('dark-mode');
+            } else {
+                mainNav.classList.remove('dark-mode');
+            }
+        }
+        
+        return false;
+    });
+});
+</script>
+
+<style>
+    /* 默认浅色模式 */
+    body {
+        background: #fff;
+        color: #000;
+        transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    /* 暗黑模式样式 */
+    body.dark-mode {
+        background: #121212;
+        color: #f0f0f0;
+    }
+
+    /* 调整导航栏样式 */
+    .half-screen-nav.dark-mode {
+        background: rgba(30, 30, 30, 0.95);
+    }
+
+    /* 暗黑模式切换按钮样式 */
+    .btn-dark-toggle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        padding: 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border: none;
+        background: rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    body:not(.dark-mode) .btn-dark-toggle {
+        color: #495057;
+    }
+    
+    body.dark-mode .btn-dark-toggle {
+        color: #f0f0f0;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-dark-toggle:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        transform: scale(1.1);
+    }
+    
+    body.dark-mode .btn-dark-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .animate-toggle {
+        animation: pulse 0.5s ease;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    .btn-dark-toggle .icon-container {
+        position: relative;
+        width: 24px;
+        height: 24px;
+    }
+
+    .btn-dark-toggle i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .btn-dark-toggle .moon-icon {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+
+    .btn-dark-toggle .sun-icon {
+        opacity: 0;
+        transform: translateY(10px) rotate(-90deg);
+    }
+
+    body.dark-mode .btn-dark-toggle .moon-icon {
+        opacity: 0;
+        transform: translateY(-10px) rotate(90deg);
+    }
+
+    body.dark-mode .btn-dark-toggle .sun-icon {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+
+    /* 添加明暗文本过渡效果 */
+    .text-transition {
+        transition: color 0.5s ease;
+    }
+
+    body.dark-mode .text-dark {
+        color: #e0e0e0 !important;
+    }
+
+    body.dark-mode .bg-light,
+    body.dark-mode .bg-white {
+        background-color: #1e1e1e !important;
+    }
+
+    body.dark-mode .border {
+        border-color: #333 !important;
+    }
+
+    /* 优化链接在暗黑模式下的颜色 */
+    body.dark-mode a:not(.btn):not(.nav-link):not(.badge) {
+        color: #81a4f1;
+    }
+
+    body.dark-mode a:not(.btn):not(.nav-link):not(.badge):hover {
+        color: #a3c0ff;
+    }
+    
+    /* 优化表单元素在暗黑模式下的样式 */
+    body.dark-mode input,
+    body.dark-mode select,
+    body.dark-mode textarea {
+        background-color: #2c2c2c;
+        border-color: #444;
+        color: #f0f0f0;
+    }
+    
+    body.dark-mode input::placeholder,
+    body.dark-mode select::placeholder,
+    body.dark-mode textarea::placeholder {
+        color: #999;
+    }
+    
+    /* 滚动条样式优化 */
+    body.dark-mode::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    
+    body.dark-mode::-webkit-scrollbar-track {
+        background: #1e1e1e;
+    }
+    
+    body.dark-mode::-webkit-scrollbar-thumb {
+        background-color: #444;
+        border-radius: 6px;
+        border: 2px solid #1e1e1e;
+    }
+    
+    body.dark-mode::-webkit-scrollbar-thumb:hover {
+        background-color: #666;
+    }
+    .mcmsf-title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(270deg, #42d392, #647eff, #42d392);
+  background-size: 600% 600%;
+  animation: gradientFlow 10s ease infinite;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style>
+
+<script>
+    // 定义一个全局的暗黑模式切换函数
+    function toggleDarkMode() {
+        console.log("切换暗黑模式");
+        
+        // 切换暗黑模式类
+        const body = document.body;
+        const isDarkMode = !body.classList.contains("dark-mode");
+        
+        if (isDarkMode) {
+            body.classList.add("dark-mode");
+        } else {
+            body.classList.remove("dark-mode");
+        }
+        
+        // 记录用户的选择到localStorage
+        localStorage.setItem("dark-mode", isDarkMode ? "enabled" : "disabled");
+        
+        // 添加按钮动画效果
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        if (darkModeToggle) {
+            darkModeToggle.classList.add("animate-toggle");
+            setTimeout(() => {
+                darkModeToggle.classList.remove("animate-toggle");
+            }, 700);
+        }
+        
+        // 处理半屏导航栏暗黑模式
+        const mainNav = document.getElementById("mainNav");
+        if (mainNav) {
+            if (isDarkMode) {
+                mainNav.classList.add("dark-mode");
+            } else {
+                mainNav.classList.remove("dark-mode");
+            }
+        }
+        
+        console.log("暗黑模式已切换为：", isDarkMode ? "开启" : "关闭");
+        return false; // 阻止表单提交和其他默认行为
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        // 添加调试语句
+        console.log("DOM已加载完成，开始初始化暗黑模式");
+        
+        // 初始化页面主题
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+        
+        // 初始化主题 - 优先使用用户设置，然后是系统偏好
+        const savedTheme = localStorage.getItem("dark-mode");
+        console.log("保存的主题设置:", savedTheme);
+        
+        if (savedTheme === "enabled" || (savedTheme === null && prefersDarkScheme.matches)) {
+            document.body.classList.add("dark-mode");
+            console.log("已应用暗黑模式");
+            
+            // 初始状态下更新导航栏
+            const mainNav = document.getElementById("mainNav");
+            if (mainNav) {
+                mainNav.classList.add("dark-mode");
+            }
+        }
+        
+        // 监听系统主题变化
+        prefersDarkScheme.addEventListener("change", (e) => {
+            console.log("系统主题变化:", e.matches ? "暗色" : "亮色");
+            // 只有当用户没有明确设置主题时才跟随系统
+            if (!localStorage.getItem("dark-mode")) {
+                if (e.matches) {
+                    document.body.classList.add("dark-mode");
+                    
+                    // 更新导航栏
+                    const mainNav = document.getElementById("mainNav");
+                    if (mainNav) {
+                        mainNav.classList.add("dark-mode");
+                    }
+                    
+                    console.log("跟随系统切换到暗黑模式");
+                } else {
+                    document.body.classList.remove("dark-mode");
+                    
+                    // 更新导航栏
+                    const mainNav = document.getElementById("mainNav");
+                    if (mainNav) {
+                        mainNav.classList.remove("dark-mode");
+                    }
+                    
+                    console.log("跟随系统切换到亮色模式");
+                }
+            }
+        });
+    });
+</script>
+
+<!-- 移动端导航菜单按钮 -->
+<button class="btn btn-alt-secondary me-1" type="button" id="menuToggle">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- 半屏展开导航栏 -->
+<div class="half-screen-nav" id="mainNav">
+    <span class="close-nav" id="closeNav">&times;</span> <!-- 关闭按钮 -->
+    <ul class="nav nav-pills flex-column">
+        <li class="nav-item"><a class="nav-link active" href="/index.html">首页</a></li>
+        <li class="nav-item"><a class="nav-link" href="/list.html">服务器列表</a></li>
+        <li class="nav-item"><a class="nav-link" href="/doc" target="_blank">用户协议</a></li>
+        <li class="nav-item"><a class="nav-link" href="/doc/about.html">关于MCMSF</a></li>
+        <li class="nav-item"><a class="nav-link" href="mailto:support@mcmsf.com" target="_blank">问题反馈</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://www.sodayo.net/" target="_blank">北京速德优</a></li>
+    </ul>
+</div>
+
+<style>
+    /* 让导航菜单展开时占据半屏 */
+    .half-screen-nav {
+        position: fixed;
+        top: 0;
+        right: -50%; /* 初始隐藏 */
+        width: 50%; /* 半屏宽度 */
+        height: 100vh; /* 全屏高度 */
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        z-index: 1050;
+        overflow-y: auto;
+        transition: right 0.3s ease-in-out;
+    }
+
+    /* 菜单展开状态 */
+    .half-screen-nav.show {
+        right: 0;
+    }
+
+    /* 让菜单项居中对齐 */
+    .half-screen-nav .nav {
+        text-align: center;
+    }
+
+    .half-screen-nav .nav-item {
+        margin: 15px 0;
+    }
+
+    /* 关闭按钮 */
+    .close-nav {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let menuButton = document.getElementById("menuToggle");
+        let menu = document.getElementById("mainNav");
+        let closeButton = document.getElementById("closeNav");
+
+        // 点击菜单按钮展开
+        menuButton.addEventListener("click", function () {
+            menu.classList.add("show");
+        });
+
+        // 点击关闭按钮收起
+        closeButton.addEventListener("click", function () {
+            menu.classList.remove("show");
+        });
+
+        // 点击菜单外部时关闭
+        document.addEventListener("click", function (event) {
+            if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+                menu.classList.remove("show");
+            }
+        });
+    });
+</script>
+                    </div>
+                </div>
+            </nav>
+              </header>
+        <main id="main-container"> <!-- 页面主体内容 -->
+            <div id="one-hero" class="bg-body-extra-light bg-image" style="background-image: url('http://enginecat.cn/img/ai/page/25.7.21/6.jpg');"> <!-- 英雄区域，设置背景图片 -->
+  <div class="content content-full"> <!-- 内容容器 -->
+    <div class="row g-0 justify-content-center text-center"> <!-- 使用网格布局居中内容 -->
+      <div class="col-md-10 pt-7 pb-5"> <!-- 内容区域 -->
+        <div class="d-inline-flex align-items-center space-x-1 fs-sm badge bg-success-light text-success mb-2 p-2"> <!-- 成功提示 -->
+          <span>「 <span id="jinrishici-sentence"></span>」</span> <!-- 今日诗词内容 -->
+        </div>                       
+        <div class="my-3">
+          <img src="/png/logo.png" alt="MCMSF Logo" style="max-height: 195px;" class="mx-auto d-block">
+        </div>
+        <h1 class="fs-2 fw-bold mb-3 mcmsf-title" style="color: white;"> <!-- 主标题 -->
+          浆果服 MC服务器宣传平台 (MCMSF)
+        </h1>
+        <p class="fs-5 fw-medium mb-4 mx-xl-8" style="color: white;"> <!-- 副标题 -->
+          开放的 Minecraft 服务器宣传平台，致力于连接服务器与玩家，提供服务器展示、资源共享与互动支持，共建自由协作的 Minecraft 多元生态。
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-2" style="max-width: 600px; margin: 0 auto;">
+  <!-- 第一行按钮 -->
+  <a class="btn btn-alt-primary py-2 px-3 m-1 flex-fill text-nowrap" style="max-width: 280px;" 
+     data-toggle="click-ripple" data-pjax 
+     href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=SrMWlwJewLLGjy2xDTYYN-XNJ8JDaCSw&authKey=AhISUQa9cesITxz5CQTkcPxV4N%2FLVVpLZEN6H6UpyWZCTXjUwIMAs9ccD4BEP2zR&noverify=0&group_code=1034516260" 
+     onclick="Ma();">
+    <i class="fab fa-qq me-2"></i>加入玩家群组
+  </a>
+  
+  <a class="btn btn-alt-primary py-2 px-3 m-1 flex-fill text-nowrap" style="max-width: 280px;" 
+     data-toggle="click-ripple" data-pjax 
+     href="how.html" 
+     onclick="Ma();">
+    <i class="fa fa-fw fa-arrow-down opacity-50 me-1"></i> 提交服务器
+  </a>
+  
+  <!-- 第二行按钮（当有第三个按钮时自动换行） -->
+  <a class="btn btn-alt-primary py-2 px-3 m-1 flex-fill text-nowrap" style="max-width: 280px;" 
+     data-toggle="click-ripple" data-pjax 
+     href="https://mcserver.wiki" 
+     onclick="Ma();">
+    <i class="far fa-file-alt"></i> MCSERVER.WIKI
+  </a>
+  <a class="btn btn-alt-primary py-2 px-3 m-1" data-toggle="click-ripple" data-pjax href="calendar.html" onclick="Ma();">
+            <i class="far fa-calendar-alt"></i> 活动日历
+          </a>
+          <a class="btn btn-alt-primary py-2 px-3 m-1" data-toggle="click-ripple" data-pjax href="service.html" onclick="Ma();">
+            <i class="fal fa-icons"></i> MCMSF服务
+          </a>
+          </div>
+         <p style="color: #FFFFFF;">
+  使用功能即代表您同意
+  <a href="/doc" target="_blank" style="color: #4C78DD;">用户协议</a>与
+  <a href="/doc/#privacy" target="_blank" style="color: #4C78DD;">隐私政策</a>
+</p>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const oneHero = document.getElementById('one-hero');
+
+  function preloadImage(url) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(url);
+      img.onerror = () => reject(url);
+      img.src = url;
+    });
+  }
+
+  async function loadRandomImage() {
+    try {
+      const res = await fetch('random.php');
+      const data = await res.json();
+
+      if (data.error) {
+        console.warn('图片接口错误：', data.error);
+        return; // 保留默认背景
+      }
+
+      const proxyUrl = 'image-proxy.php?url=' + encodeURIComponent(data.url) + '&t=' + Date.now();
+
+      await preloadImage(proxyUrl);
+      oneHero.style.backgroundImage = `url('${proxyUrl}')`;
+
+    } catch (e) {
+      console.error('图片加载失败:', e);
+    }
+  }
+
+  loadRandomImage();
+</script>
+<!-- 服务器搜索框和分类筛选 
+<div id="server-search">
+    <input type="text" id="searchBox" placeholder="  搜索服务器..." oninput="filterServers()">
+    <select id="categoryFilter" onchange="filterServers()">
+        <option value="">📂 全部分类</option>
+        <option value="生电">生电</option>
+        <option value="创造">创造</option>
+        <option value="模组">模组</option>
+        <option value="生存">生存</option>
+        <option value="小游戏">小游戏</option>
+        <option value="群组服">群组服</option>
+        <option value="无政府">无政府</option>
+    </select>
+</div>
+                   -->
+
+        </div>
+    </div>
+</section>
+<!-- 精选服务器推荐 -->
+<section class="py-5 position-relative servers-section">
+    <!-- 背景装饰元素 -->
+    <div class="servers-bg-shape-1 position-absolute d-none d-lg-block"></div>
+    <div class="servers-bg-shape-2 position-absolute d-none d-lg-block"></div>
+    <div class="servers-bg-shape-3 position-absolute d-none d-lg-block"></div>
+    
+    <div class="container position-relative">
+        <div class="row justify-content-center mb-5">
+                <div class="section-badge slide-in-bottom mb-3">
+                    <span class="badge bg-primary px-3 py-2 rounded-pill">
+                        <i class="fas fa-server me-2"></i>MCMSF - 服务器专区
+                    </span>
+        </div>
+                <h2 class="fw-bold mb-3">推荐服务器列表</h2>
+                <p class="text-muted">使用Ai高效搜索，找到最适合您的服务器</p>
+    </div>
+        </div>
+<script src="activity-cards.js"></script>
+<section id="upcoming-events" class="py-1">
+    <div class="container">
+        <div class="row g-4">
+            <!-- 活动卡片将自动插入到这里 -->
+        
+    <!-- 服务器卡片部分 
+        <div class="row g-4 mb-5" id="server-list">
+         服务器卡片由JavaScript动态生成 -->
+    </div>
+    
+    <div class="text-center mt-4">
+            <a href="list.html" class="btn btn-alt-primary py-2 px-3 m-1 flex-fill text-nowrap">
+            <i class="fas fa-server me-2"></i>借助AI查看列表
+        </a>
+            <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=SrMWlwJewLLGjy2xDTYYN-XNJ8JDaCSw&authKey=AhISUQa9cesITxz5CQTkcPxV4N%2FLVVpLZEN6H6UpyWZCTXjUwIMAs9ccD4BEP2zR&noverify=0&group_code=1034516260" class="btn btn-alt-primary py-2 px-3 m-1 flex-fill text-nowrap">
+            <i class="fas fa-plus-circle me-2"></i>提交服务器
+        </a>
+                                        </div> 
+
+</section>
+
+<style>
+/* 服务器推荐区域样式 */
+.servers-section {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.servers-bg-shape-1 {
+    width: 400px;
+    height: 400px;
+    background-color: rgba(76, 120, 221, 0.04);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    top: -100px;
+    right: -150px;
+    animation: float-servers-1 20s infinite alternate ease-in-out;
+}
+
+.servers-bg-shape-2 {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(76, 120, 221, 0.06);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    bottom: -50px;
+    left: -100px;
+    animation: float-servers-2 18s infinite alternate-reverse ease-in-out;
+}
+
+.servers-bg-shape-3 {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(76, 120, 221, 0.05);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    top: 40%;
+    left: 10%;
+    animation: float-servers-3 15s infinite alternate ease-in-out;
+}
+
+@keyframes float-servers-1 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(20px, 30px) rotate(5deg); }
+}
+
+@keyframes float-servers-2 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-20px, 20px) rotate(-5deg); }
+}
+
+@keyframes float-servers-3 {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    100% { transform: translate(15px, -25px) rotate(5deg) scale(1.05); }
+}
+
+.servers-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.servers-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #4C78DD, #6C46D9);
+    border-radius: 3px;
+}
+
+/* 服务器特色说明卡片 */
+.server-feature-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.server-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.server-feature-card:hover .feature-icon-wrapper {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.bg-primary-soft {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.bg-success-soft {
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+.bg-info-soft {
+    background-color: rgba(13, 202, 240, 0.1);
+}
+
+/* 服务器按钮样式 */
+.servers-btn {
+    transition: all 0.3s ease;
+}
+
+.servers-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(76, 120, 221, 0.2);
+}
+
+/* 淡入动画 */
+.fade-in-feature {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards ease-out;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 暗黑模式适配 */
+body.dark-mode .servers-section {
+    background: linear-gradient(135deg, #151515, #222222);
+}
+
+body.dark-mode .servers-bg-shape-1,
+body.dark-mode .servers-bg-shape-2,
+body.dark-mode .servers-bg-shape-3 {
+    background-color: rgba(76, 120, 221, 0.1);
+}
+
+body.dark-mode .server-feature-card {
+    background-color: #252525;
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .server-feature-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode #server-list .block {
+    background-color: #252525;
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #server-list .block:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .servers-title::after {
+    background: linear-gradient(90deg, #4C78DD, #6C46D9);
+}
+
+body.dark-mode .feature-icon-wrapper.bg-primary-soft {
+    background-color: rgba(76, 120, 221, 0.2);
+}
+
+body.dark-mode .feature-icon-wrapper.bg-success-soft {
+    background-color: rgba(25, 135, 84, 0.2);
+}
+
+body.dark-mode .feature-icon-wrapper.bg-info-soft {
+    background-color: rgba(13, 202, 240, 0.2);
+}
+
+/* 添加暗模式下服务器卡片的阴影效果 */
+body.dark-mode #server-list .server-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* 添加暗模式下的服务器状态样式 */
+body.dark-mode .status-online {
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+}
+
+/* 添加服务器统计数字暗模式样式 */
+body.dark-mode .player-count {
+    background-color: rgba(76, 120, 221, 0.25);
+    color: #a3c0ff;
+}
+
+body.dark-mode .server-status-text {
+    color: #ddd;
+}
+
+body.dark-mode .status-text-online {
+    color: #5cb85c;
+}
+
+body.dark-mode .status-text-offline {
+    color: #f26b5b;
+}
+
+body.dark-mode .status-text-unknown {
+    color: #ffd04c;
+}
+
+body.dark-mode .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    position: relative;
+}
+
+/* 玩家数量样式 */
+.player-count {
+    background-color: rgba(13, 110, 253, 0.1);
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #4C78DD;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.player-count i {
+    font-size: 0.7rem;
+    margin-right: 4px;
+}
+
+/* 服务器热门标签 */
+.server-hot-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
+    display: flex;
+    align-items: center;
+    animation: pulse-hot 2s infinite;
+}
+
+.server-hot-badge i {
+    margin-right: 5px;
+    font-size: 0.7rem;
+}
+
+@keyframes pulse-hot {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 添加服务器标签样式 */
+#server-list .badge {
+    border-radius: 30px;
+    padding: 5px 12px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 根据类别显示不同颜色 */
+#server-list .badge:contains('生电') {
+    background-color: #3498db;
+}
+
+#server-list .badge:contains('生存') {
+    background-color: #2ecc71;
+}
+
+#server-list .badge:contains('模组') {
+    background-color: #9b59b6;
+}
+
+#server-list .badge:contains('群组服') {
+    background-color: #e74c3c;
+}
+
+/* 暗黑模式适配 */
+body.dark-mode #server-list .block {
+    background-color: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .player-count {
+    background-color: rgba(76, 120, 221, 0.2);
+    color: #81a4f1;
+}
+
+body.dark-mode .server-status-text {
+    color: #ddd;
+}
+
+body.dark-mode .status-text-online {
+    color: #5cb85c;
+}
+
+body.dark-mode .status-text-offline {
+    color: #f26b5b;
+}
+
+body.dark-mode .status-text-unknown {
+    color: #ffd04c;
+}
+
+@media (max-width: 767px) {
+    .servers-section {
+        padding: 60px 0;
+    }
+    
+    .server-feature-card {
+        margin-bottom: 20px;
+    }
+}
+</style>
+
+<script>
+// 更新精选服务器卡片样式的脚本
+document.addEventListener('DOMContentLoaded', function() {
+    // 覆盖原来的生成服务器卡片函数，使用更现代的设计
+    window.generateServerCards = function(serverList = servers) {
+        // 每次生成服务器列表时，先随机排序
+        const shuffledServers = shuffleArray([...serverList]);
+
+        const serverContainer = document.getElementById("server-list");
+        if (!serverContainer) {
+            console.error("找不到服务器列表容器");
+            return;
+        }
+        
+        serverContainer.innerHTML = "";
+        
+        // 显示服务器卡片
+        const displayServers = shuffledServers.slice(0, 6);
+        
+        displayServers.forEach((server, index) => {
+            const serverCard = document.createElement("div");
+            serverCard.className = "col-lg-4 col-md-6 fade-in-feature";
+            serverCard.style.animationDelay = `${0.1 * index}s`;
+            
+            let badgeClass = "bg-primary";
+            if (server.category === "生存") badgeClass = "bg-success";
+            if (server.category === "模组") badgeClass = "bg-purple";
+            if (server.category === "群组服") badgeClass = "bg-danger";
+            
+            serverCard.innerHTML = `
+                <div class="block block-rounded h-100 overflow-hidden" data-server-id="${server.id}">
+                    <div class="position-relative server-image-container">
+                        <img class="img-fluid" src="${server.image}" alt="${server.name}">
+                        <div class="server-overlay">
+                            <button class="btn btn-sm btn-light rounded-pill" onclick="copyIP('${server.id}')">
+                                <i class="fas fa-external-link-alt me-1"></i> 加入服务器
+                            </button>
+                        </div>
+                    </div>
+                    <div class="block-content p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <span class="badge ${badgeClass} mb-2">${server.category}</span>
+                            <div class="server-status">
+                                <span class="status-dot" id="${server.id}-status-dot"></span>
+                                <span class="server-status-text" id="${server.id}-status-text">检查中...</span>
+                            </div>
+                        </div>
+                        <h4 class="h5 mb-2 fw-bold server-name">${server.name}</h4>
+                        <p class="fs-sm text-muted mb-3">${formatDescription(server.version)}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div id="${server.id}-players-container">
+                                <div class="player-count">
+                                    <i class="fas fa-spinner fa-spin"></i> 
+                                    <span id="${server.id}-players">加载中...</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary rounded-pill px-3" 
+                                    onclick="copyIP('${server.id}')">
+                                <i class="fas fa-link me-1"></i> 连接信息
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            serverContainer.appendChild(serverCard);
+        });
+        
+        // 添加服务器卡片样式
+        const styleElement = document.createElement('style');
+        styleElement.textContent = `
+            .server-image-container {
+                position: relative;
+                height: 180px;
+                overflow: hidden;
+            }
+            
+            .server-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            
+            .block:hover .server-overlay {
+                opacity: 1;
+            }
+            
+            .server-name {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .bg-purple {
+                background-color: #9b59b6;
+            }
+        `;
+        
+        document.head.appendChild(styleElement);
+    };
+    
+    // 重写更新服务器状态函数
+    window.updateServerStatus = async function() {
+        servers.forEach(async server => {
+            try {
+                // 获取状态元素
+                const statusDot = document.getElementById(`${server.id}-status-dot`);
+                const statusText = document.getElementById(`${server.id}-status-text`);
+                const playerElement = document.getElementById(`${server.id}-players`);
+                const playerContainer = document.getElementById(`${server.id}-players-container`);
+                
+                if (!statusDot || !statusText || !playerElement || !playerContainer) {
+                    console.error(`找不到服务器 ${server.id} 的状态元素`);
+                    return;
+                }
+                
+                // 显示加载动画
+                statusDot.className = "status-dot";
+                statusText.className = "server-status-text";
+                statusText.innerHTML = '检查中...';
+                playerElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 加载中...';
+                
+                // 使用Promise.race添加超时处理
+                const timeoutPromise = new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error('请求超时')), 5000)
+                );
+                
+                // 获取服务器状态
+                try {
+                    const data = await Promise.race([
+                        fetch(server.apiEndpoint).then(res => res.json()),
+                        timeoutPromise
+                    ]);
+                    
+                    const serverCard = document.querySelector(`[data-server-id="${server.id}"]`);
+                    
+                    if (data.online) {
+                        server.online = true;
+                        
+                        // 更新状态指示器
+                        statusDot.className = "status-dot status-online";
+                        statusText.className = "server-status-text status-text-online";
+                        statusText.innerHTML = '在线';
+                        
+                        // 更新玩家数量
+                        playerElement.innerHTML = `${data.players.online}/${data.players.max}`;
+                        
+                        // 添加热门标签如果玩家超过一定数量
+                        if (data.players.online > 20 && serverCard) {
+                            // 检查是否已存在热门标签
+                            if (!serverCard.querySelector('.server-hot-badge')) {
+                                const hotBadge = document.createElement('div');
+                                hotBadge.className = 'server-hot-badge';
+                                hotBadge.innerHTML = '<i class="fas fa-fire-alt"></i> 热门';
+                                
+                                const imageContainer = serverCard.querySelector('.server-image-container');
+                                if (imageContainer) {
+                                    imageContainer.appendChild(hotBadge);
+                                }
+                            }
+                        }
+                        
+                        // 更新玩家数量样式
+                        const playerPercentage = (data.players.online / data.players.max) * 100;
+                        
+                        if (playerPercentage > 80) {
+                            // 服务器接近满员
+                            playerContainer.innerHTML = `
+                                <div class="player-count" style="background-color: rgba(255, 193, 7, 0.2); color: #ffc107;">
+                                    <i class="fas fa-users"></i> 
+                                    <span>${data.players.online}/${data.players.max}</span>
+                                    <i class="fas fa-exclamation-circle ms-1" title="服务器接近满员"></i>
+                                </div>
+                            `;
+                        } else {
+                            playerContainer.innerHTML = `
+                                <div class="player-count">
+                                    <i class="fas fa-users"></i> 
+                                    <span>${data.players.online}/${data.players.max}</span>
+                                </div>
+                            `;
+                        }
+                    } else {
+                        server.online = false;
+                        
+                        // 更新状态指示器
+                        statusDot.className = "status-dot status-offline";
+                        statusText.className = "server-status-text status-text-offline";
+                        statusText.innerHTML = '离线';
+                        
+                        // 更新玩家信息
+                        playerContainer.innerHTML = `
+                            <div class="player-count" style="background-color: rgba(220, 53, 69, 0.1); color: #dc3545;">
+                                <i class="fas fa-power-off"></i> 
+                                <span>暂不可用</span>
+                            </div>
+                        `;
+                    }
+                } catch (error) {
+                    console.error(`获取 ${server.name} 状态失败:`, error);
+                    
+                    // 使用模拟数据
+                    const isOnline = Math.random() > 0.3;
+                    const playerCount = Math.floor(Math.random() * 30) + 1;
+                    const maxPlayers = 100;
+                    
+                    server.online = isOnline;
+                    
+                    if (isOnline) {
+                        // 更新状态指示器
+                        statusDot.className = "status-dot status-online";
+                        statusText.className = "server-status-text status-text-online";
+                        statusText.innerHTML = '在线';
+                        
+                        // 更新玩家数量
+                        playerContainer.innerHTML = `
+                            <div class="player-count">
+                                <i class="fas fa-users"></i> 
+                                <span>${playerCount}/${maxPlayers}</span>
+                                <small class="ms-1 opacity-75">(估计)</small>
+                            </div>
+                        `;
+                    } else {
+                        // 更新状态指示器
+                        statusDot.className = "status-dot status-unknown";
+                        statusText.className = "server-status-text status-text-unknown";
+                        statusText.innerHTML = '未知';
+                        
+                        // 更新玩家信息
+                        playerContainer.innerHTML = `
+                            <div class="player-count" style="background-color: rgba(255, 193, 7, 0.1); color: #ffc107;">
+                                <i class="fas fa-question-circle"></i> 
+                                <span>状态未知</span>
+                            </div>
+                        `;
+                    }
+                }
+            } catch (error) {
+                console.error(`处理 ${server.name} 时出错:`, error);
+            }
+        });
+    };
+    
+    // 定期更新服务器状态
+    setInterval(updateServerStatus, 60000); // 每分钟更新一次
+    
+    // 重新生成服务器卡片
+    if(typeof servers !== 'undefined') {
+        generateServerCards();
+        
+        // 更新服务器状态
+        if(typeof updateServerStatus === 'function') {
+            updateServerStatus();
+        }
+    }
+});
+</script>
+
+<section class="app-download py-5" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('http://enginecat.cn/img/ai/page/25.5.21/6.jpg') center/cover;">
+    <div class="container">
+        <div class="app-content">
+            <div class="row align-items-center">
+                <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                    <!-- 左侧空白区域，可放图片或LOGO -->
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="display-5 fw-bold mb-4">关于 浆果服 MCMSF</h2>
+                    <p class="lead mb-4">最后编辑: 2025.08.20 00:10:04</p>
+
+                    <h2>我们是谁</h2>
+                    <p>
+                        <strong>MCMSF（浆果服）</strong> 是一个由玩家和服主共同建设的 <strong>Minecraft 服务器展示平台/社区</strong>。<br/>
+                        我们希望打破服务器之间的壁垒，为玩家与服务器搭建起一座沟通的桥梁。
+                    </p>
+
+                    <h2>我们的使命</h2>
+                    <p>
+                        📌 <strong>为玩家</strong>：提供一个快捷、直观的服务器检索与体验入口，让你快速找到感兴趣的服务器。<br/>
+                        📌 <strong>为服主</strong>：提供一个高效、开放的展示平台，帮助你的服务器被更多玩家发现与加入。<br/>
+                        📌 <strong>为我们</strong>：构建一个互帮互助、分享交流的生态，让创造精神得以延续和扩散。
+                    </p>
+                      <p>*以上解释权归MCMSF所有</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 视频区域 -->
+<section class="py-5 position-relative videos-section">
+    <!-- 背景装饰元素 -->
+    <div class="videos-bg-shape-1 position-absolute d-none d-lg-block"></div>
+    <div class="videos-bg-shape-2 position-absolute d-none d-lg-block"></div>
+    
+    <div class="container position-relative">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-7">
+                <div class="section-badge slide-in-bottom mb-3">
+                    <span class="badge bg-primary px-3 py-2 rounded-pill">
+                        <i class="fas fa-play-circle me-2"></i>MCMSF - 演示视频
+                    </span>
+                </div>
+                <h2 class="fw-bold mb-3">浆果视频展示#在建</h2>
+                <p class="text-muted">观看精选服务器的介绍/宣传视频，辅助您挑选</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- 4程 -->
+            <div class="col-md-6 col-lg-4 fade-in-video" style="animation-delay: 0.1s">
+                <div class="video-card h-100">
+                    <div class="video-thumbnail position-relative">
+                        <div class="ratio ratio-16x9 overflow-hidden rounded-top">
+                        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114025476131659&bvid=BV1S8AYeGE6g&cid=28460189923&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+                    </div>
+                        <div class="video-category">
+                            <span><i class="fas fa-cog me-1"></i>MCMSF - 坚果服</span>
+                    </div>
+                </div>
+                    <div class="video-content">
+                        <h5 class="video-title">MCMSF - 坚果服 正式上线！/h5>
+                        <p class="video-description">这是简介</p>
+                        <div class="video-meta">
+                            <span><i class="fas fa-eye me-1"></i>5283次观看</span>
+                            <span><i class="fas fa-thumbs-up me-1"></i>215赞</span>
+                            <a href="#" class="video-link">
+                                <span>查看完整视频</span>
+                                <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="mailto:support@mcmsf.com" class="btn btn-alt-primary py-2 px-3 m-1 flex-fill text-nowrap">
+                <i class="fa-svg-base fa-custom me-2"></i>投稿视频(注明来意)
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* 视频展示区域样式 */
+.videos-section {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.videos-bg-shape-1 {
+    width: 350px;
+    height: 350px;
+    background-color: rgba(76, 120, 221, 0.04);
+    border-radius: 30% 70% 50% 50% / 30% 30% 70% 70%;
+    top: -80px;
+    right: -100px;
+    animation: float-videos-1 18s infinite alternate ease-in-out;
+}
+
+.videos-bg-shape-2 {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(76, 120, 221, 0.05);
+    border-radius: 50% 50% 70% 30% / 50% 50% 30% 70%;
+    bottom: -70px;
+    left: -50px;
+    animation: float-videos-2 15s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float-videos-1 {
+    0% { transform: translate(0, 0) rotate(-10deg); }
+    100% { transform: translate(20px, 30px) rotate(10deg); }
+}
+
+@keyframes float-videos-2 {
+    0% { transform: translate(0, 0) rotate(5deg); }
+    100% { transform: translate(-20px, 20px) rotate(-5deg); }
+}
+
+.videos-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.videos-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #4C78DD, #6C46D9);
+    border-radius: 3px;
+}
+
+/* 视频卡片样式 */
+.video-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail {
+    position: relative;
+}
+
+.video-category {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(244, 67, 54, 0.9);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-category-blue {
+    background-color: rgba(33, 150, 243, 0.9);
+}
+
+.video-category-green {
+    background-color: rgba(76, 175, 80, 0.9);
+}
+
+.video-content {
+    padding: 25px;
+}
+
+.video-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.video-description {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.video-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.video-meta span {
+    margin-right: 15px;
+    margin-bottom: 8px;
+}
+
+.video-link {
+    color: #4C78DD;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.video-link:hover {
+    color: #3a5bb9;
+}
+
+.video-link i {
+    transition: all 0.3s ease;
+}
+
+.video-link:hover i {
+    transform: translateX(3px);
+}
+
+/* 视频淡入动画 */
+.fade-in-video {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards ease-out;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 浏览更多按钮 */
+.videos-all-btn {
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.videos-all-btn:hover {
+    background-color: #4C78DD;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(76, 120, 221, 0.2);
+}
+
+/* 暗黑模式适配 */
+body.dark-mode .videos-section {
+    background: linear-gradient(135deg, #151515, #222222);
+}
+
+body.dark-mode .videos-bg-shape-1,
+body.dark-mode .videos-bg-shape-2 {
+    background-color: rgba(76, 120, 221, 0.1);
+}
+
+body.dark-mode .video-card {
+    background-color: #252525;
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .video-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .video-title {
+    color: #f0f0f0;
+}
+
+body.dark-mode .video-description {
+    color: #bbb;
+}
+
+body.dark-mode .video-meta {
+    color: #aaa;
+}
+
+body.dark-mode .video-meta span {
+    color: #999;
+}
+
+body.dark-mode .video-link {
+    color: #81a4f1;
+}
+
+body.dark-mode .video-link:hover {
+    color: #a3c0ff;
+}
+
+body.dark-mode .video-category {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .videos-all-btn {
+    border-color: #4C78DD;
+    color: #81a4f1;
+}
+
+body.dark-mode .videos-all-btn:hover {
+    background-color: #4C78DD;
+    color: white;
+    box-shadow: 0 10px 20px rgba(76, 120, 221, 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 767px) {
+    .videos-section {
+        padding: 60px 0;
+    }
+    
+    .video-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .video-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .video-content {
+        padding: 20px;
+    }
+}
+</style>
+
+
+
+
+
+<style>
+/* 活动区域样式 */
+.events-section {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+    background-color: #f8f9fa;
+}
+
+.events-bg-shape-1 {
+    width: 350px;
+    height: 350px;
+    background-color: rgba(76, 120, 221, 0.04);
+    border-radius: 30% 70% 50% 50% / 30% 30% 70% 70%;
+    top: -100px;
+    right: -150px;
+    transform: rotate(20deg);
+    animation: float-events 20s infinite alternate ease-in-out;
+}
+
+.events-bg-shape-2 {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(76, 120, 221, 0.06);
+    border-radius: 50% 50% 70% 30% / 50% 50% 30% 70%;
+    bottom: -100px;
+    left: -100px;
+    transform: rotate(-15deg);
+    animation: float-events 18s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float-events {
+    0% { transform: translate(0, 0) rotate(-15deg); }
+    100% { transform: translate(20px, 30px) rotate(15deg); }
+}
+
+.events-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.events-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #4C78DD, #6C46D9);
+    border-radius: 3px;
+}
+
+/* 活动卡片样式 */
+.event-card {
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.event-image-wrapper {
+    position: relative;
+    height: 200px;
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.event-card:hover .event-image {
+    transform: scale(1.1);
+}
+
+.event-category {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(13, 110, 253, 0.9);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-category-red {
+    background-color: rgba(220, 53, 69, 0.9);
+}
+
+.event-category-warning {
+    background-color: rgba(255, 193, 7, 0.9);
+    color: #212529;
+}
+
+.event-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover .event-overlay {
+    opacity: 1;
+}
+
+.event-overlay-content {
+    transform: translateY(20px);
+    transition: all 0.3s 0.1s ease;
+}
+
+.event-card:hover .event-overlay-content {
+    transform: translateY(0);
+}
+
+.event-meta {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.event-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.event-tag {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #4C78DD;
+    border-radius: 30px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.event-card:hover .event-tag {
+    background-color: rgba(13, 110, 253, 0.2);
+}
+
+.event-btn {
+    transition: all 0.3s ease;
+}
+
+.event-btn:hover {
+    padding-right: 1.5rem;
+}
+
+.event-btn i {
+    transition: all 0.3s ease;
+}
+
+.event-btn:hover i {
+    transform: translateX(5px);
+}
+
+.events-all-btn {
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.events-all-btn:hover {
+    background-color: #4C78DD;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(76, 120, 221, 0.2);
+}
+
+/* 暗黑模式适配 */
+body.dark-mode .events-section {
+    background-color: #222;
+}
+
+body.dark-mode .event-card {
+    background-color: #2a2a2a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.dark-mode .card-text {
+    color: #bbb !important;
+}
+
+body.dark-mode .event-participants .text-muted {
+    color: #aaa !important;
+}
+
+body.dark-mode .event-tag {
+    background-color: rgba(76, 120, 221, 0.15);
+}
+
+body.dark-mode .events-all-btn {
+    border-color: #4C78DD;
+    color: #4C78DD;
+}
+
+body.dark-mode .events-all-btn:hover {
+    background-color: #4C78DD;
+    color: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 767px) {
+    .event-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .event-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .events-all-btn {
+        font-size: 0.9rem;
+        padding: 10px 25px;
+    }
+}
+</style>
+
+<!-- 玩家统计 -->
+<section id="stats" class="py-5 text-white" style="background: linear-gradient(135deg, #007bff, #6610f2);">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">MCMSF数据#在建</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-item">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-server fa-3x"></i>
+                    </div>
+                    <h2 class="stat-number fw-bold" data-count="4">0</h2>
+                    <p class="stat-label">活跃服务器</p>
+                    <div class="stat-line"></div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-item">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-users fa-3x"></i>
+                    </div>
+                    <h2 class="stat-number fw-bold" data-count="[err]">0</h2>
+                    <p class="stat-label">访问次数</p>
+                    <div class="stat-line"></div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-item">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-calendar-check fa-3x"></i>
+                    </div>
+                    <h2 class="stat-number fw-bold" data-count="1">0</h2>
+                    <p class="stat-label">平台活动</p>
+                    <div class="stat-line"></div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-item">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-globe fa-3x"></i>
+                    </div>
+                    <h2 class="stat-number fw-bold" data-count="1">0</h2>
+                    <p class="stat-label">合作平台</p>
+                    <div class="stat-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- 联系我们 -->
+<section id="contact" class="py-5 bg-light position-relative overflow-hidden">
+    <!-- 背景装饰元素 -->
+    <div class="position-absolute top-0 end-0 d-none d-lg-block contact-decoration">
+        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.05">
+            <path d="M39.5 76.5C54.5 33.5 116 -3.5 151.5 1C187 5.5 203 52 199 93.5C195 135 176.5 141 154.5 155.5C132.5 170 86.5 197.5 55 180C23.5 162.5 24.5 119.5 39.5 76.5Z" fill="#4C78DD"/>
+        </svg>
+    </div>
+    <div class="position-absolute bottom-0 start-0 d-none d-lg-block contact-decoration">
+        <svg width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.07">
+            <path d="M22.5 96.5C-13.1 157.7 13.5 236.5 67 248.5C120.5 260.5 182.5 221 221.5 162.5C260.5 104 231 69 207.5 33C184 -3 117.5 -2.5 78.5 25.5C39.5 53.5 58.1 35.3 22.5 96.5Z" fill="#4C78DD"/>
+        </svg>
+    </div>
+    
+    <div class="container position-relative">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-7 text-center">
+                <div class="section-badge slide-in-bottom mb-3">
+                    <span class="badge bg-primary px-3 py-2 rounded-pill">
+                        <i class="fas fa-headset me-2"></i>MCMSF - 联系
+                    </span>
+                </div>
+                <h2 class="fw-bold mb-3 contact-title">联系我们</h2>
+                <p class="text-muted mb-0">有任何问题或建议？通过以下方式联系我们，我们将尽快为您提供帮助！</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="row g-4">
+                
+                <!-- 其他联系方式 -->
+                <div class="row mt-4">
+                    <div class="col-12 fade-in-contact" style="animation-delay: 0.4s">
+                        <div class="card border-0 shadow-sm contact-more-card">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-7">
+                                        <h4 class="mb-3">平台选择</h4>
+                                        <p class="text-muted mb-4">我们目前仅提供这些渠道，您可以通过以下方式找到我们：</p>
+                                        <div class="d-flex flex-wrap">
+                                            <a href="https://github.com/limeruafufu/MCMSF" class="social-btn me-2 mb-2">
+                                                <i class="fab fa-github me-2"></i> GitHub
+                                            </a>
+                                            <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=3bEp4UT%2FWPrqAen8m70uR7AYRANK9ZL2ODZWP3%2FU2afhC806DfwoE29%2BMC7nNyhm&busi_data=eyJncm91cENvZGUiOiIxMDM0NTE2MjYwIiwidG9rZW4iOiJiRmdqeVFkMTd6eUtRSU5hUTh2eHlvS3VXWVpYSisyK0Vja0pMSTdndzN4d1VQUm5xWjBrUXg1RHlqZ2pPaTlmIiwidWluIjoiMjQ1NjUxNjY5NSJ9&data=uVuv2Rne5JtC_-eR6v5LbPF4Nu3b4F11M9KUU-Z2KLLsl40Kyu0aFCVNnHvDofH-9-uUUtG5zOt3ys9950DYYQ&svctype=4&tempid=h5_group_info" class="social-btn me-2 mb-2">
+                                                <i class="fab fa-qq me-2"></i> 官方企鹅群
+                                            </a>
+                                            <a href="mailto:support@mcmsf.com" class="social-btn me-2 mb-2">
+                                                <i class="fas fa-envelope me-2"></i> 电子邮件
+                                            </a>
+                                            <a href="https://b23.tv/8ebJ2NC" class="social-btn me-2 mb-2">
+                                                <i class="fa-svg-base fa-custom me-2"></i> 哔哩哔哩
+                                            </a>
+                    </div>
+                        </div>
+                                    <div class="col-lg-5 d-none d-lg-block text-center">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+  /* 保持 Font Awesome 原本的 .fas，不动它 */
+.fas {
+  /* 不要加 background 或 mask，不然会覆盖字体图标 */
+}
+
+/* 专门给自定义图标用一个类，比如 fa-svg-base */
+.fa-svg-base {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  background-color: currentColor; /* 继承字体颜色 */
+}
+
+/* 然后定义具体图标 */
+.fa-custom {
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M7.172 2.757L10.414 6h3.171l3.243-3.242a1 1 0 0 1 1.415 1.415l-1.829 1.827L18.5 6A3.5 3.5 0 0 1 22 9.5v8a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 2 17.5v-8A3.5 3.5 0 0 1 5.5 6h2.085L5.757 4.171a1 1 0 0 1 1.415-1.415zM18.5 8h-13a1.5 1.5 0 0 0-1.493 1.356L4 9.5v8a1.5 1.5 0 0 0 1.356 1.493L5.5 19h13a1.5 1.5 0 0 0 1.493-1.356L20 17.5v-8A1.5 1.5 0 0 0 18.5 8zM8 11a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm8 0a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1z'/></svg>") no-repeat center/contain;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M7.172 2.757L10.414 6h3.171l3.243-3.242a1 1 0 0 1 1.415 1.415l-1.829 1.827L18.5 6A3.5 3.5 0 0 1 22 9.5v8a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 2 17.5v-8A3.5 3.5 0 0 1 5.5 6h2.085L5.757 4.171a1 1 0 0 1 1.415-1.415zM18.5 8h-13a1.5 1.5 0 0 0-1.493 1.356L4 9.5v8a1.5 1.5 0 0 0 1.356 1.493L5.5 19h13a1.5 1.5 0 0 0 1.493-1.356L20 17.5v-8A1.5 1.5 0 0 0 18.5 8zM8 11a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm8 0a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1z'/></svg>") no-repeat center/contain;
+}
+  </style>
+<style>
+/* 联系我们模块样式 */
+#contact {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.contact-decoration {
+    z-index: 1;
+    transition: all 0.8s ease;
+}
+
+#contact:hover .contact-decoration {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.contact-title {
+    position: relative;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+.contact-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #4C78DD, #6610f2);
+    border-radius: 3px;
+}
+
+/* 联系卡片样式 */
+.contact-card {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.fade-in-contact .contact-card {
+    animation: fadeInUp 0.6s forwards;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(76, 120, 221, 0.15) !important;
+}
+
+/* 联系图标样式 */
+.contact-icon-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(76, 120, 221, 0.1) 0%, rgba(102, 16, 242, 0.1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.contact-card:hover .contact-icon-wrapper {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(76, 120, 221, 0.2) 0%, rgba(102, 16, 242, 0.2) 100%);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4C78DD;
+    transition: all 0.4s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1);
+}
+
+/* 联系按钮样式 */
+.contact-btn {
+    position: relative;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid #4C78DD;
+    color: #4C78DD;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #4C78DD, #6610f2);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.contact-btn i {
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .contact-btn {
+    color: #fff;
+}
+
+.contact-card:hover .contact-btn::before {
+    width: 100%;
+}
+
+.contact-card:hover .contact-btn i {
+    transform: translateX(5px);
+}
+
+/* 其他联系方式卡片 */
+.contact-more-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.fade-in-contact .contact-more-card {
+    animation: fadeInUp 0.6s forwards;
+}
+
+.contact-more-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(76, 120, 221, 0.15) !important;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #f0f2f5;
+    border-radius: 50px;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: #4C78DD;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.contact-image {
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    transform: perspective(800px) rotateY(-15deg);
+}
+
+.contact-more-card:hover .contact-image {
+    transform: perspective(800px) rotateY(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 暗黑模式适配 */
+body.dark-mode #contact {
+    background: linear-gradient(135deg, #151515 0%, #222222 100%);
+}
+
+body.dark-mode .contact-card,
+body.dark-mode .contact-more-card {
+    background-color: #252525;
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .contact-icon {
+    color: #4C78DD;
+}
+
+body.dark-mode .contact-icon-wrapper {
+    background: linear-gradient(135deg, rgba(76, 120, 221, 0.15) 0%, rgba(102, 16, 242, 0.15) 100%);
+}
+
+body.dark-mode .contact-card h5,
+body.dark-mode .contact-more-card h4 {
+    color: #fff;
+}
+
+body.dark-mode .contact-card .card-text,
+body.dark-mode .contact-more-card p {
+    color: #aaa;
+}
+
+body.dark-mode .social-btn {
+    background-color: #333;
+    color: #ddd;
+}
+
+body.dark-mode .social-btn:hover {
+    background-color: #4C78DD;
+    color: white;
+}
+</style>
+
+<footer class="footer py-5 bg-light">
+  <div class="container">
+        <div class="row mb-4">
+            <!-- MCMSF 信息 -->
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="fw-bold mb-3">Minecraft Survival Federation - 浆果服</h5>
+                <ul class="list-unstyled footer-links">
+                    <li class="mb-2"><a href="/doc" class="text-decoration-none text-secondary">使用前文档(必读)</a></li>
+                    <li class="mb-2"><a href="https://mcserver.wiki/" class="text-decoration-none text-secondary">McserverWiki</a></li>
+                    <li class="mb-2"><a href="mailto:support@mcmsf.com" class="text-decoration-none text-secondary">问题反馈</a></li>
+                    <li class="mb-2"><a href="mc.html" class="text-decoration-none text-secondary">服务器状态监测</a></li>
+        </ul>
+      </div>
+            
+            <!-- 友情链接 -->
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="fw-bold mb-3">友情链接</h5>
+                <ul class="list-unstyled footer-links">
+                    <li class="mb-2"><a href="https://mc.xzwmc.com" class="text-decoration-none text-secondary">饼盒 Cookiebox</a></li>
+                    <li class="mb-2"><a href="https://www.sodayo.net/" class="text-decoration-none text-secondary">北京速德优</a></li>
+                    <li class="mb-2"><a href="https://mcserver.wiki" class="text-decoration-none text-secondary">mcserverwiki</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">?</a></li>
+                    
+        </ul>
+      </div>
+            
+            <!-- 关注我们 -->
+            <div class="col-md-4">
+                <h5 class="fw-bold mb-3">关注我们</h5>
+                <div class="d-flex align-items-center mb-3">
+                    <a href="https://github.com/limeruafufu/MCMSF" class="me-3 text-secondary fs-4" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://b23.tv/8ebJ2NC" class="me-3 text-secondary fs-4" title="BiliBili"><i class="fa-svg-base fa-custom "></i></a>
+                    
+        </div>
+      </div>
+    </div>
+
+        <hr class="my-4">
+        
+        <!-- 版权信息 -->
+        <div class="footer-bottom text-center">
+            <p class="mb-2">© 2025 <strong>MCMSF</strong>. <a href="doc/AGPL.html" target="_blank" style="color: #4C78DD;">AGPL-3.0</a></p>
+            <p class="mb-2">本站并非Minecraft官方网站，与Mojang和微软亦无从属关系。</p>
+            <p class="mb-2">特别鸣谢：<a href="http://enginecat.cn/" target="_blank" style="color: #4C78DD;">EngineCat 我的世界壁纸站</a></p>
+            <p class="mb-0"><a href="https://beian.miit.gov.cn/" class="text-secondary">京ICP备2024044839号-7</a></p>
+            <p class="mb-2">自2025.8.20开始至现在，平台部分功能仍在开发完善中(包括但不限于带有 #在建 字样)，您可能遇到诸多bug，如果您有发展建议或是问题反馈，欢迎发电子邮件到support@mcmsf.com</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+    /* 页脚样式 */
+    .footer {
+        background-color: #f8f9fa;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .footer-links a {
+        transition: all 0.3s ease;
+        display: inline-block;
+        position: relative;
+    }
+    
+    .footer-links a:hover {
+        color: #4C78DD !important;
+        transform: translateX(5px);
+    }
+    
+    .footer-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: #4C78DD;
+        transition: width 0.3s ease;
+    }
+    
+    .footer-links a:hover::after {
+        width: 100%;
+    }
+    
+    .footer h5 {
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    .footer h5::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, #4C78DD, #6610f2);
+    }
+    
+    /* 社交媒体图标样式 */
+    .footer a[class*="fs-4"] {
+        transition: all 0.3s ease;
+    }
+    
+    .footer a[class*="fs-4"]:hover {
+        color: #4C78DD !important;
+        transform: translateY(-3px);
+    }
+    
+    /* 暗黑模式适配 */
+    body.dark-mode .footer {
+        background-color: #1a1a1a;
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    body.dark-mode .footer h5,
+    body.dark-mode .footer-bottom strong {
+        color: #fff;
+    }
+    
+    body.dark-mode .footer-links a,
+    body.dark-mode .footer a[class*="fs-4"] {
+        color: #aaa !important;
+    }
+    
+    body.dark-mode .footer-links a:hover,
+    body.dark-mode .footer a[class*="fs-4"]:hover {
+        color: #4C78DD !important;
+    }
+    
+    body.dark-mode .footer-bottom p {
+        color: #aaa;
+    }
+</style>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> <!-- 引入Bootstrap脚本 -->
+
+    <script src="stats-counter.js"></script> <!-- 引入统计数字脚本 -->
+    <script src="activity-cards.js"></script> 
+    <script>
+        // 页面加载后初始化所有模块
+        document.addEventListener('DOMContentLoaded', function() {
+            // 触发统计区域的检查
+            const statsSection = document.getElementById('stats');
+            if (statsSection) {
+                setTimeout(() => {
+                    // 强制触发统计区域可见性检查
+                    window.dispatchEvent(new Event('scroll'));
+                    
+                    // 添加入场动画类
+                    const statItems = document.querySelectorAll('.stat-item');
+                    statItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('stat-item-visible');
+                        }, index * 200); // 错开动画时间
+                    });
+                }, 500);
+            }
+            
+            // 初始化公益服务卡片动画
+            const announcements = document.getElementById('announcements');
+            if (announcements) {
+                // 设置卡片淡入效果
+                const fadeInCards = document.querySelectorAll('#announcements .fade-in-card .service-card');
+                fadeInCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('service-card-visible');
+                    }, 300 + index * 150); // 错开动画时间
+                });
+                
+                // 滚动时检查是否需要显示卡片
+                window.addEventListener('scroll', function() {
+                    if (isElementInViewport(announcements)) {
+                        const hiddenCards = document.querySelectorAll('#announcements .service-card:not(.service-card-visible)');
+                        hiddenCards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('service-card-visible');
+                            }, index * 150);
+                        });
+                    }
+                });
+            }
+            
+            // 判断元素是否在视窗中
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.bottom >= 0
+                );
+            }
+            
+            // 一言获取
+            fetch('https://v1.hitokoto.cn')
+                .then(response => response.json())
+                .then(data => {
+                    const text = document.getElementById('jinrishici-sentence');
+                    if (text) {
+                        text.innerText = data.hitokoto;
+                    }
+                })
+                .catch(console.error);
+        });
+    </script>
+
+
+
+    <script>
+    // 简化的暗黑模式切换功能
+    (function() {
+        // 页面加载后立即执行
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('simpleDarkModeBtn');
+            if (!btn) {
+                console.error('找不到简化暗黑模式按钮');
+                return;
+            }
+            
+            console.log('简化暗黑模式按钮已找到');
+            
+            // 初始化主题
+            if (localStorage.getItem('simple-dark') === 'on') {
+                document.body.classList.add('dark-mode');
+                btn.innerHTML = '<i class="far fa-sun" style="font-size: 16px; color: #fff;"></i>';
+                btn.style.backgroundColor = '#333';
+            }
+            
+            // 添加点击事件
+            btn.onclick = function() {
+                console.log('简化暗黑模式按钮被点击');
+                const isDark = document.body.classList.toggle('dark-mode');
+                
+                if (isDark) {
+                    localStorage.setItem('simple-dark', 'on');
+                    btn.innerHTML = '<i class="far fa-sun" style="font-size: 16px; color: #fff;"></i>';
+                    btn.style.backgroundColor = '#333';
+                } else {
+                    localStorage.setItem('simple-dark', 'off');
+                    btn.innerHTML = '<i class="far fa-moon" style="font-size: 16px;"></i>';
+                    btn.style.backgroundColor = '#eee';
+                }
+                
+                // 简单动画效果
+                btn.style.transform = 'scale(1.1)';
+                setTimeout(() => { btn.style.transform = 'scale(1)'; }, 300);
+                
+                // 更新导航栏暗黑模式
+                const mainNav = document.getElementById('mainNav');
+                if (mainNav) {
+                    if (isDark) {
+                        mainNav.classList.add('dark-mode');
+                    } else {
+                        mainNav.classList.remove('dark-mode');
+                    }
+                }
+                
+                return false;
+            };
+        });
+    })();
+    </script>
+</body>
+</html>

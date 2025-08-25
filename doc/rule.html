@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MCMSF 浆果服 文档点</title>
+  <meta name="description" content="MCMSF（浆果服）平台三合一协议：用户/玩家协议、服主协议、第三方合作协议 + 隐私与涉税报送 + 开源与合规。由速德优科技有限公司提供支持。" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root{
+      --md-sys-color-primary:#6fa8dc;
+      --md-sys-color-primary-variant:#0039cb;
+      --md-sys-color-secondary:#03dac6;
+      --md-sys-color-surface:#ffffff;
+      --md-sys-color-background:#fafafa;
+      --md-sys-color-on-primary:#ffffff;
+      --md-sys-elevation-1: 0 1px 2px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.06);
+      --md-sys-elevation-2: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+      --page-max: 1200px;
+    }
+    html,body{margin:0;padding:0;background:var(--md-sys-color-background);color:#1f1f1f;font-family:"Noto Sans SC","Roboto",system-ui,-apple-system,Segoe UI,Arial,Helvetica Neue,Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.6}
+    a{color:var(--md-sys-color-primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .appbar{position:sticky;top:0;z-index:1000;background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);box-shadow:var(--md-sys-elevation-2)}
+    .appbar .row{max-width:var(--page-max);margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 20px}
+    .brand{font-weight:700;letter-spacing:.2px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+    .brand small{opacity:.9;font-weight:500}
+    .wrap{max-width:var(--page-max);margin:24px auto;display:grid;grid-template-columns:280px 1fr;gap:24px;padding:0 20px}
+    .toc{position:sticky;top:76px;align-self:start;background:var(--md-sys-color-surface);border-radius:16px;box-shadow:var(--md-sys-elevation-1);padding:16px;max-height: calc(100vh - 100px);overflow-y: auto;}
+    .toc h3{margin:0 0 8px 0;font-size:14px;color:#555}
+    .toc a{display:block;padding:6px 8px;border-radius:8px;font-size: 14px;}
+    .toc a.active{background:#e8f0fe}
+    .content{min-width:0}
+    .card{background:var(--md-sys-color-surface);border-radius:18px;box-shadow:var(--md-sys-elevation-1);padding:20px;margin-bottom:16px}
+    h1{font-size:28px;margin:12px 0}
+    h2{font-size:22px;margin:24px 0 12px}
+    h3{font-size:18px;margin:16px 0 8px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
+    .chip{background:#eef2ff;color:#1a237e;border-radius:999px;padding:4px 10px;font-size:12px}
+    .meta{color:#666;font-size:13px}
+    .btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:12px;padding:10px 14px;background:var(--md-sys-color-primary);color:var(--md-sys-color-on-primary);cursor:pointer;font-size: 14px;}
+    .btn.tonal{background:#e8f0fe;color:#1a237e}
+    .note{background:#fffbea;border:1px solid #fde68a;color:#92400e;padding:10px 12px;border-radius:12px}
+    .kbd{padding:2px 6px;border:1px solid #ddd;border-bottom-width:2px;border-radius:6px;background:#f7f7f7;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+    .fab{position:fixed;right:20px;bottom:24px;background:var(--md-sys-color-secondary);color:#073042;border:none;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;box-shadow:var(--md-sys-elevation-2);cursor:pointer;z-index: 999;}
+    footer{max-width:var(--page-max);margin:40px auto 24px;padding:0 20px;color:#666}
+    .grid{display:grid;gap:12px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    
+    /* 移动端优化 */
+    @media (max-width: 980px){
+      .wrap{grid-template-columns:1fr; gap: 16px;}
+      .toc{order:-1; position: relative; top: 0; max-height: none;}
+      .appbar .row {flex-wrap: wrap;}
+      .brand {font-size: 16px; max-width: 70%;}
+      .btn {font-size: 13px; padding: 8px 12px;}
+      .grid.cols-2{grid-template-columns:1fr}
+      h1 {font-size: 24px;}
+      h2 {font-size: 20px;}
+      h3 {font-size: 17px;}
+      .card {padding: 16px;}
+    }
+    
+    /* 小屏幕手机优化 */
+    @media (max-width: 480px) {
+      .appbar .row {padding: 10px 15px;}
+      .wrap {padding: 0 15px; margin: 16px auto;}
+      .brand {font-size: 15px; max-width: 60%;}
+      .btn {font-size: 12px; padding: 7px 10px;}
+      h1 {font-size: 22px;}
+      h2 {font-size: 19px;}
+      h3 {font-size: 16px;}
+      .card {padding: 14px; border-radius: 14px;}
+      .toc {border-radius: 14px; padding: 14px;}
+      .fab {right: 15px; bottom: 20px; width: 50px; height: 50px;}
+    }
+  </style>
+</head>
+<body>
+
+  <main class="wrap" role="main">
+    <nav class="toc" aria-label="目录">
+      <h3>目录</h3>
+      <a href="#overview">概览</a>
+      <a href="#legal-defs">平台与公司信息</a>
+      <a href="#user-agreement">用户/玩家协议</a>
+      <a href="#owner-agreement">服主协议</a>
+      <a href="#partner-agreement">第三方合作协议</a>
+      <a href="#privacy">隐私政策（含涉税报送）</a>
+      <a href="#ip-complaints">知识产权与侵权</a>
+      <a href="#disclaimer">法律声明/免责声明</a>
+      <a href="#how-to">如何添加服务器/展示</a>
+      <a href="#jurisdiction">法律适用与争议解决</a>
+      <a href="#opensource">开源与许可证（AGPLv3）</a>
+      <a href="#contact">联系与版本信息</a>
+    </nav>
+<section class="content">
+  <article class="card" id="overview">
+    <h1>MCMSF用户协议</h1>
+    <p class="meta">由 <strong>速德优(北京)网络科技有限公司（Sodayo Technology Co., Ltd.）</strong> 提供支持 · 生效日期：<time datetime="2025-08-25">2025-08-25</time></p>
+    <div class="chips">
+      <span class="chip">#MCMSF文档</span>
+      <span class="chip">AGPLv3</span>
+    </div>
+    <p class="note" role="note"><strong>页面概述：</strong>本页面为一站式法律与合规文件，包含「用户/玩家协议」「服主协议」「第三方合作协议」「隐私政策（含涉税报送）」「法律声明/免责声明」「开源与许可证」以及「如何添加服务器/展示」实操指南。继续使用即视为已阅读并同意相关条款。</p>
+  </article>
+
+  <article class="card" id="legal-defs">
+    <h2>一、平台与公司信息</h2>
+    <div class="grid cols-2">
+      <div>
+        <h3>平台主体</h3>
+        <ul>
+          <li>平台名称：<strong>MCMSF（浆果服）</strong></li>
+          <li>平台定位：Minecraft 服务器展示与玩家交流平台</li>
+          <li>官方网址：<a href="https://mcmsf.com" target="_blank" rel="noopener">mcmsf.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>公司背书</h3>
+        <ul>
+          <li>支持方：<strong>速德优(北京)网络科技有限公司（Sodayo Technology Co., Ltd.）</strong></li>
+          <li>联系邮箱：<a href="mailto:support@mcmsf.com">support@mcmsf.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" id="user-agreement">
+    <h2>二、用户/玩家协议</h2>
+    <h3>1. 账户与使用</h3>
+    <ul>
+      <li>使用本平台需遵守法律法规与社区规则；未成年人应在监护人指导下使用。</li>
+      <li>若涉及账号体系，用户应妥善保管凭证；因用户保管不善导致的风险由用户自行承担。</li>
+    </ul>
+    <h3>2. 服务与限制</h3>
+    <ul>
+      <li>平台提供服务器展示、检索/筛选、讨论区与公告等功能；具体功能以平台上线为准。</li>
+      <li>平台可因合规、技术或运营需要调整、暂停或终止部分功能，并于合理范围内公告。</li>
+    </ul>
+    <h3>3. 用户行为规范</h3>
+    <ul>
+      <li>不得发布违法、侵权、低俗、诈骗、恶意代码或误导性内容；不得进行骚扰、刷屏或干扰平台运行。</li>
+      <li>尊重他人权利与社区氛围；违反者将面临内容删除、禁言、封禁或移交监管等处理。</li>
+    </ul>
+    <h3>4. UGC 内容与责任</h3>
+    <ul>
+      <li>服务器卡片、介绍、图片视频、外链等由提交者提供，平台仅作展示。</li>
+      <li><strong>用户对其发布内容独立负责</strong>，平台不对第三方内容的真实性、完整性与可用性作保证。</li>
+    </ul>
+    <h3>5. 免责与风险提示</h3>
+    <ul>
+      <li>平台按“现状/可获得”提供，对网络波动、第三方故障、不可抗力等引发的损失不承担赔偿责任。</li>
+      <li>对任何间接、附带、惩罚性或后果性损失不承担责任；若法律要求赔偿，以法定强制标准为限。</li>
+    </ul>
+  </article>
+
+  <article class="card" id="owner-agreement">
+    <h2>三、服主协议（服务器接入条款）</h2>
+    <h3>1. 准入与真实性</h3>
+    <ul>
+      <li>提交者应为服主/管理员或经授权代表；提交信息需真实、准确、可验证。</li>
+      <li>不得包含恶意软件、钓鱼链接、侵权素材或违反公序良俗的内容。</li>
+    </ul>
+    <h3>2. 展示与排序</h3>
+    <ul>
+      <li>平台可基于质量、活跃度、合规性与用户反馈进行排序与推荐；具体策略可能随业务优化调整。</li>
+      <li>对违规或不适宜的服务器条目，平台有权下架、限流或永久移除。</li>
+    </ul>
+    <h3>3. 知识产权与授权</h3>
+    <ul>
+      <li>提交即授予平台在全球范围内非独占、免版税、可撤销的使用、复制、存储、展示与传播许可，仅用于运营与推广本平台。</li>
+      <li>服主须确保素材（含图文与视频/音频、商标）已获合法授权，不侵害第三方权益。</li>
+    </ul>
+    <h3>4. 监测与合规</h3>
+    <ul>
+      <li>平台可进行合规审核与异常监测；对多次投诉或涉嫌违法的服务器将限制展示或移交监管。</li>
+      <li>服主应配合处理用户投诉、权利主张与安全事件，及时更新失效/变更信息。</li>
+    </ul>
+  </article>
+
+  <article class="card" id="partner-agreement">
+    <h2>四、第三方合作协议（摘要）</h2>
+    <ul>
+      <li>合作范围：品牌共建、活动联办、资源互换、技术接口与统计工具等；以书面协议为准。</li>
+      <li>合规要求：遵守数据与隐私、广告合规与未成年人保护要求；不得夹带诱导、违规营销。</li>
+      <li>数据原则：最小必要、目的限定、授权透明；未经许可不得擅自二次分发或画像。</li>
+      <li>责任边界：各方对自身内容/服务/合规各自负责；联合活动另行约定保险/责任分担。</li>
+    </ul>
+    <p class="meta">注：正式合作以双方签署的《合作协议》《数据处理协议（DPA）》为准，本节为平台通用条款摘要。</p>
+  </article>
+
+  <article class="card" id="privacy">
+    <h2>五、隐私政策（含涉税信息报送）</h2>
+    <h3>1. 收集信息类型</h3>
+    <ul>
+      <li>必要信息：提交人联系方式、服务器元信息、审核材料。</li>
+      <li>设备与日志：设备标识、浏览器类型、IP、时间戳、操作日志、异常记录、Cookie/本地存储。</li>
+      <li>合规模块：合规标签、风险判定摘要、审计流水号。</li>
+    </ul>
+    <h3>2. 使用目的</h3>
+    <ul>
+      <li>提供/优化展示与检索、风控与安全、问题定位与统计。</li>
+      <li>符合法律法规的监管报送、纠纷处理与权利保护。</li>
+    </ul>
+    <h3>3. 涉税信息报送</h3>
+    <ul>
+      <li>依据税收征管要求，可能通过<strong>电子税务局官方端口</strong>报送涉及交易/结算/激励的必要信息。</li>
+      <li>传输全程加密（如 TLS），配合端口所需报文签名、证书校验、时间戳与完整性校验。</li>
+      <li>留存周期与字段范围以法律法规与监管口径为准，逾期删除或匿名化处理。</li>
+    </ul>
+    <h3>4. 共享与披露</h3>
+    <ul>
+      <li>不出售个人信息；仅在取得授权、依法依规、或为维护重大权益时共享。</li>
+      <li>第三方合作遵循最小必要与目的限定，需签署 DPA 并接受审计。</li>
+    </ul>
+    <h3>5. 安全措施</h3>
+    <ul>
+      <li>分级分域存储、最小权限（RBAC）、MFA、密钥分离、加密存储与细粒度审计。</li>
+      <li>备份与恢复演练、漏洞管理与供应链依赖巡检；重大事件依法通知用户与主管部门。</li>
+    </ul>
+    <h3>6. 用户权利</h3>
+    <ul>
+      <li>访问、更正、删除、撤回同意、获取说明与账号注销；依法必须留存的数据不适用强制删除。</li>
+      <li>未成年人：建议由监护人代为行使相关权利与监督使用。</li>
+    </ul>
+  </article>
+
+  <article class="card" id="ip-complaints">
+    <h2>六、知识产权与侵权处理</h2>
+    <ul>
+      <li>平台与标识受版权与商标法保护；未经许可不得使用。</li>
+      <li>UGC 版权归属原作者；提交即授予平台在运营与推广范围内的非独占使用权。</li>
+      <li>侵权投诉应提供权利证明、侵权链接、联系方式与处理诉求；经核实将尽快处理。</li>
+    </ul>
+  </article>
+
+  <article class="card" id="disclaimer">
+    <h2>七、法律声明 / 免责声明</h2>
+    <ul>
+      <li>平台定位为信息展示与交流，不参与任何服务器的实际运营、资金结算与管理。</li>
+      <li>平台按“现状/可获得”提供；对由网络、第三方、不可抗力导致的损失不承担赔偿责任。</li>
+      <li>对任何间接、附带、惩罚性或后果性损失不承担责任；法律另有强制规定的，从其规定。</li>
+      <li>MCMSF（浆果服）仅作为Minecraft服务器的展示与交流平台，不直接运营或管理各服务器。<br/>服务器内容、玩法及管理由对应服主负责，本平台不对其可用性、稳定性或玩家纠纷承担责任。<br/>请玩家在游玩过程中注意保护个人信息与财产安全。<br/><br/>MCMSF平台仅提供信息展示与交流服务，不直接参与各服务器的运营与管理。<br/>服务器内容及相关责任由各服主独立承担，MCMSF对因使用相关服务器而产生的任何纠纷、损失或风险不承担法律责任。<br/>使用本平台即表示您已知悉并同意自行承担相应风险。</li>
+    </ul>
+  </article>
+
+  <article class="card" id="how-to">
+    <h2>八、如何添加服务器/展示</h2>
+    <ol>
+      <li><strong>准备信息</strong>：名称、封面（可选）、服务器地址与端口、版本/模组、标签、简介、外链（官网/视频/企鹅群）。</li>
+      <li><strong>提交表单</strong>：在 <span class="kbd">mcmsf.com/submit</span> 填写信息并上传素材。</li>
+      <li><strong>合规校验</strong>：完成基础校验（恶意链接/侵权/敏感内容），必要时补充授权与证明。</li>
+      <li><strong>审核与上线</strong>：通常 T+3 工作日内完成审核；结果将通过邮箱反馈。</li>
+      <li><strong>维护与更新</strong>：版本变更、地址调整或重大活动，请在 <span class="kbd">/dashboard</span> 同步更新。</li>
+    </ol>
+    <p class="meta">提示：请避免夸大或虚假宣传；若服务器长期不可达或屡遭投诉，可能被降权或下架。</p>
+  </article>
+
+  <article class="card" id="jurisdiction">
+    <h2>九、法律适用与争议解决</h2>
+    <ul>
+      <li>适用法律：中华人民共和国大陆地区法律。</li>
+      <li>争议解决：先行协商；不成的，提交平台所在地有管辖权的人民法院。</li>
+      <li>责任上限：除法律强制规定外，对直接损失的总体赔偿责任以合理且必要的限额为准。</li>
+    </ul>
+  </article>
+
+  <article class="card" id="opensource">
+    <h2>十、开源与许可证（AGPLv3）</h2>
+    <ul>
+      <li>MCMSF 软件以 <strong>AGPL-3.0-or-later</strong> 授权分发；如修改并通过网络提供服务，需向所有交互用户开放完整对应源代码。</li>
+      <li>在站点显著位置提供源码获取入口（示例：页脚“源代码（AGPLv3）”或 <span class="kbd">/source</span>）。</li>
+      <li>附带 <span class="kbd">LICENSE</span>、<span class="kbd">NOTICE</span> 与第三方依赖许可清单；遵循上游项目的许可证义务。</li>
+    </ul>
+  </article>
+
+  <article class="card" id="contact">
+    <h2>十一、联系与版本信息</h2>
+    <ul>
+      <li>联系邮箱：<a href="mailto:support@mcmsf.com">support@mcmsf.com</a></li>
+      <li>版本号：v1.0.0（最后更新：<time datetime="2025-08-23">2025-08-23</time>）</li>
+    </ul>
+    <pre class="note">tip:
+最终解释权归:速德优北京网络科技有限公司</pre> </article> </section>
+  </main>  
+  <button class="fab" id="backTop" aria-label="返回顶部" title="返回顶部">
+    <span class="material-icons" aria-hidden="true">arrow_upward</span>
+  </button>  
+  <footer>
+    <small>建议使用「打印」按钮保存为 PDF 归档。</small>
+  </footer>  
+  <script>
+    // Smooth scroll and active toc
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const sections = tocLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    const onScroll = () => {
+      let activeIndex = 0;
+      const fromTop = window.scrollY + 100;
+      sections.forEach((sec, i) => {
+        if (sec.offsetTop <= fromTop) activeIndex = i;
+      });
+      tocLinks.forEach((a, i) => a.classList.toggle('active', i === activeIndex));
+    };
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    tocLinks.forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = a.getAttribute('href');
+        document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    // Print button
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    // Back to top
+    const backTop = document.getElementById('backTop');
+    backTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+    window.addEventListener('scroll', () => {
+      backTop.style.opacity = window.scrollY > 400 ? 1 : 0;
+      backTop.style.visibility = window.scrollY > 400 ? 'visible' : 'hidden';
+    }, {passive:true});
+    
+    // 初始化隐藏返回顶部按钮
+    backTop.style.opacity = 0;
+    backTop.style.visibility = 'hidden';
+    backTop.style.transition = 'opacity 0.3s, visibility 0.3s';
+  </script>
+</body>
+</html>

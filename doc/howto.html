@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提交服务器 / 加入方式</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+        body {
+            background-color:#f5f5f7;color:#333;line-height:1.6;
+            padding:20px;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+        }
+        .container {max-width:800px;width:100%;text-align:center;}
+        h1 {margin-bottom:30px;color:#1d1d1f;font-weight:600;}
+        .description {margin-bottom:40px;color:#86868b;font-size:18px;max-width:600px;margin:auto;}
+        .btn {
+            display:inline-flex;align-items:center;justify-content:center;
+            background-color:#007aff;color:white;border:none;
+            padding:14px 25px;border-radius:12px;font-size:17px;font-weight:500;
+            cursor:pointer;transition:all 0.2s;box-shadow:0 4px 10px rgba(0,122,255,0.3);
+            text-decoration:none;margin:10px;
+        }
+        .btn:hover {background-color:#0063ce;transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,122,255,0.4);}
+        .btn i {margin-right:8px;}
+        .overlay {position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .3s;z-index:1000;}
+        .modal {
+            position:fixed;bottom:-75vh;left:0;right:0;height:75vh;
+            background:#fff;border-top-left-radius:20px;border-top-right-radius:20px;
+            box-shadow:0 -4px 20px rgba(0,0,0,.15);z-index:1001;transition:bottom .4s cubic-bezier(0.28,0.11,0.32,1);
+            display:flex;flex-direction:column;overflow:hidden;
+        }
+        .modal-handle {width:40px;height:5px;background:#e0e0e0;border-radius:3px;margin:15px auto 10px;}
+        .modal-header {padding:10px 20px 15px;text-align:center;border-bottom:1px solid #f0f0f0;}
+        .modal-title {font-size:22px;font-weight:600;color:#1d1d1f;margin-bottom:5px;}
+        .modal-content {flex:1;overflow-y:auto;padding:20px;text-align:left;}
+        .modal-content h3{margin:15px 0 10px;font-size:18px;color:#1d1d1f;}
+        .modal-content p{margin-bottom:15px;font-size:15px;color:#515154;}
+        .modal-actions {padding:15px 20px;border-top:1px solid #f0f0f0;display:flex;justify-content:flex-end;}
+        .btn-close {background:#007aff;color:white;border:none;padding:10px 20px;border-radius:10px;font-size:16px;font-weight:500;cursor:pointer;}
+        .overlay.active{opacity:1;visibility:visible;}
+        .modal.active{bottom:0;}
+        .modal-content::-webkit-scrollbar{width:5px;}
+        .modal-content::-webkit-scrollbar-thumb{background:#c1c1c1;border-radius:10px;}
+        @media (max-width:600px){.modal{border-top-left-radius:16px;border-top-right-radius:16px;}.modal-title{font-size:20px;}.btn{padding:12px 20px;font-size:16px;}}
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+<h1>服主加入方式 / 提交服务器</h1>
+<p class="description">
+  在提交服务器之前，请务必阅读并同意
+  <a href="/doc" target="_blank" style="color:#4C78DD;">服主协议</a> 与 
+  <a href="/doc" target="_blank" style="color:#4C78DD;">隐私政策</a>。
+  使用 MCMSF.COM 的相关功能，即代表您已知悉并同意上述条款。<br>
+  最终解释权归「浆果服」平台所有。
+</p>
+
+<h2>需要提交的信息</h2>
+<ul>
+  <li>服务器名称（必填）</li>
+  <li>服务器 IP 与端口（必填）</li>
+  <li>服务器版本（如 1.20.x）</li>
+  <li>服务器类型 / 模式（生存、模组、生电、小游戏等）</li>
+  <li>服务器封面图（建议 16:9 比例，清晰美观）</li>
+  <li>服务器简介（50~200 字，简要说明特色）</li>
+  <li>服主联系方式（QQ / 邮箱，至少一种）</li>
+</ul>
+        <a class="btn" id="showModalBtn"><i class="fa fa-users"></i>下一步</a>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="modal" id="modal">
+        <div class="modal-handle"></div>
+        <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle">用户协议</h2>
+        </div>
+        <div class="modal-content" id="modalContent">
+            <p style="color:#86868b;">正在加载协议...</p>
+        </div>
+        <div class="modal-actions" id="modalActions">
+            <button class="btn-close" id="agreeBtn">我已同意用户协议并继续</button>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal=document.getElementById('modal');
+        const overlay=document.getElementById('overlay');
+        const showModalBtn=document.getElementById('showModalBtn');
+        const agreeBtn=document.getElementById('agreeBtn');
+        const modalContent=document.getElementById('modalContent');
+        const modalTitle=document.getElementById('modalTitle');
+
+        function openModal(){
+            modal.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow='hidden';
+
+            // 动态加载用户协议
+            fetch('/doc/rule.html')
+                .then(res=>res.text())
+                .then(html=>{ modalContent.innerHTML=html; })
+                .catch(()=>{ 
+                    modalContent.innerHTML=`
+                        <h3>服务条款</h3>
+                        <p>加载协议失败，请刷新重试。</p>
+                    `;
+                });
+        }
+
+        function closeModal(){
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow='';
+            // 恢复初始状态
+            agreeBtn.style.display='inline-block';
+            modalTitle.textContent='用户协议';
+            modalContent.innerHTML='<p style="color:#86868b;">正在加载协议...</p>';
+        }
+
+        showModalBtn.addEventListener('click', e=>{e.preventDefault(); openModal();});
+
+        agreeBtn.addEventListener('click', function(){
+            // 切换到加入方式
+            modalTitle.textContent='加入方式';
+            modalContent.innerHTML=`
+                <p><i class="fa fa-envelope"></i> 不推荐(仅反应问题联系)邮件: <a href="mailto:support@mcmsf.com">support@mcmsf.com</a></p>
+                <p><i class="fa-brands fa-qq"></i> 推荐(最快1-12h)QQ群: <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=3bEp4UT%2FWPrqAen8m70uR7AYRANK9ZL2ODZWP3%2FU2afhC806DfwoE29%2BMC7nNyhm&busi_data=eyJncm91cENvZGUiOiIxMDM0NTE2MjYwIiwidG9rZW4iOiJiRmdqeVFkMTd6eUtRSU5hUTh2eHlvS3VXWVpYSisyK0Vja0pMSTdndzN4d1VQUm5xWjBrUXg1RHlqZ2pPaTlmIiwidWluIjoiMjQ1NjUxNjY5NSJ9&data=uVuv2Rne5JtC_-eR6v5LbPF4Nu3b4F11M9KUU-Z2KLLsl40Kyu0aFCVNnHvDofH-9-uUUtG5zOt3ys9950DYYQ&svctype=4&tempid=h5_group_info" target="_blank">点击加入群聊</a></p>
+            `;
+            agreeBtn.style.display='none';
+        });
+
+        overlay.addEventListener('click', closeModal);
+    });
+    </script>
+</body>
+</html>

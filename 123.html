@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>我的世界壁纸展示</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    #one-hero {
+      height: 100vh; /* 占满整个屏幕高度 */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #222;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="one-hero" style="height:400px; background-size:cover; background-position:center; background-repeat:no-repeat;">
+  加载中...
+</div>
+
+<script>
+const oneHero = document.getElementById('one-hero');
+
+function preloadImage(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(url);
+    img.onerror = () => reject(url);
+    img.src = url;
+  });
+}
+
+async function loadRandomImage() {
+  try {
+    const res = await fetch('http://127.0.0.1:8018/random.php');
+    const data = await res.json();
+
+    if (data.error) {
+      oneHero.innerText = data.error;
+      return;
+    }
+
+    const proxyUrl = 'http://127.0.0.1:8018/image-proxy.php?url=' + encodeURIComponent(data.url);
+
+    await preloadImage(proxyUrl);
+    oneHero.style.backgroundImage = `url('${proxyUrl}')`;
+    oneHero.innerText = '';
+
+  } catch {
+    oneHero.innerText = '图片加载失败，重试中...';
+    // 重试，延迟1秒后再次尝试
+    setTimeout(loadRandomImage, 1000);
+  }
+}
+
+loadRandomImage();
+</script>
+
+</body>
+</html>
